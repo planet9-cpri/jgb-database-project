@@ -1,0 +1,33 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# BigQuery認証情報
+*.json
+service-account-key.json
+
+# データファイル
+data/
+*.txt
+tests/fixtures/*.txt
+
+# ログ
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+"@ | Set-Content .gitignore
