@@ -1,267 +1,224 @@
-# parsers/table_parser.py
 """
-TableParser - 別表から国債銘柄情報を抽出
+横並び別表形式のパーサー
+Phase 4 用に 3層アーキテクチャに対応
 """
 
 import re
-from typing import List, Optional
-from dataclasses import dataclass
-import logging
-
-logger = logging.getLogger(__name__)
+from typing import List, Dict, Any
 
 
-@dataclass
-class BondIssuance:
-    """国債発行情報"""
-    sub_index: int
-    bond_name: str
-    bond_type: str
-    series_number: str
-    interest_rate: float
-    maturity_date: str
-    legal_basis: str
-    face_value_individual: float
-
-
-class TableParser:
-    """別表解析パーサー"""
+class TableParserV4:
+    """横並び別表形式の告示を解析"""
     
-    PATTERNS = {
-        'table_start': r'（別\s*表）',
-        'bond_name_ritsuki': r'利\s*付国庫債券[（\(](\d+)年[）\)][（\(]第(\d+)回[）\)]',
-        'bond_name_bukka': r'利付国庫債券[（\(]物価連動・(\d+)年[）\)][（\(]第(\d+)回[）\)]',
-        'bond_name_gx': r'ク\s*ライメート・トランジション利付国庫債券[（\(](\d+)年[）\)][（\(]第(\d+)回[）\)]',
-        'bond_name_tanki': r'国庫短期証券[（\(]第(\d+)回[）\)]',
-        'bond_name_kojin': r'個\s*人向け利付国庫債券[（\(](.+?)[）\)][（\(]第(\d+)回[）\)]',
-        'interest_rate': r'([\d.]+)％',
-        'amount': r'([\d,]+)円',
-        'wareki_date': r'令和(\d+)年(\d+)月(\d+)日',
-    }
+    def can_parse(self, text: str) -> bool:
+        """このパーサーで処理可能か判定"""
+        # 別表の存在確認
+        if '（別表のとおり）' in text or '内訳（別表のとおり）' in text:
+            # 別表の実際のデータがあるか確認
+            if '名称及び記号' in text and '利率' in text and '償還期限' in text:
+                return True
+        return False
     
-    def __init__(self):
-        pass
-    
-    def parse_table(self, content: str, common_legal_basis: Optional[str] = None) -> List[BondIssuance]:
-        bonds = []
-        table_match = re.search(self.PATTERNS['table_start'], content)
-        if not table_match:
-            return bonds
+    def extract(self, text: str) -> Dict[str, Any]:
+        """告示から番号付きリストと別表を抽出"""
         
-        table_start = table_match.start()
-        table_text = content[table_start:]
-        lines = table_text.split('\n')
+        items = {}
         
-        header_idx = None
-        for i, line in enumerate(lines):
-            if '名称及び記号' in line:
-                header_idx = i
-                break
-        
-        if header_idx is None:
-            return bonds
-        
-        format_type = self._detect_table_format(lines[header_idx:header_idx+10])
-        
-        if format_type == 4 and not common_legal_basis:
-            common_legal_basis = self._extract_common_legal_basis(content)
-        
-        sub_index = 0
-        i = header_idx + 1
-        
-        while i < len(lines):
-            line = lines[i].strip()
-            
-            if not line or 'page=' in line or '©' in line:
-                i += 1
-                continue
-            
-            if line in ['利率', '（年）', '償還期限', '発行額', '（額面金額）', 
-                       '発行の根拠法律及びその条項', '利率（年）', '名称及び記号']:
-                i += 1
-                continue
-            
-            if '利付国庫債券' in line:
-                sub_index += 1
-                rows_needed = format_type
-                data_lines = []
-                
-                for j in range(rows_needed):
-                    if i + j < len(lines):
-                        data_lines.append(lines[i + j].strip())
-                
-                bond = self._parse_multiline_bond(data_lines, sub_index, format_type, common_legal_basis)
-                
-                if bond:
-                    bonds.append(bond)
-                
-                i += rows_needed
-            else:
-                i += 1
-        
-        return bonds
-    
-    def _detect_table_format(self, header_lines: List[str]) -> int:
-        text = '\n'.join(header_lines)
-        if '発行の根拠法律' in text:
-            return 5
-        else:
-            return 4
-    
-    def _extract_common_legal_basis(self, content: str) -> Optional[str]:
-        pattern1 = r'[２2]\s*発行の根拠法律及びその条項\s+(.+?)(?:\n[３3]|\n\n)'
-        match = re.search(pattern1, content, re.DOTALL)
+        # 項目1: 名称及び記号（複数銘柄）
+        match = re.search(r'１\s+名称及び記号\s+(.+?)(?=\n２)', text, re.DOTALL)
         if match:
-            legal = match.group(1).strip()
-            return re.sub(r'\s+', '', legal)
-        return None
+            bond_names = self._parse_multiple_bond_names(match.group(1))
+            items[1] = {
+                'title': '名称及び記号',
+                'value': match.group(1).strip(),
+                'sub_number': None,
+                'structured_data': {'bond_names': bond_names}
+            }
+        
+        # 項目2: 発行の根拠法律
+        match = re.search(r'２\s+発行の根拠法律及びその条項\s+(.+?)(?=\n３)', text, re.DOTALL)
+        if match:
+            items[2] = {
+                'title': '発行の根拠法律及びその条項',
+                'value': match.group(1).strip(),
+                'sub_number': None,
+                'structured_data': self._parse_laws(match.group(1))
+            }
+        
+        # 項目6: 発行額（別表参照）
+        match = re.search(r'６\s+発行額\s+額面金額で([\d,]+)円\s*内訳（別表のとおり）', text, re.DOTALL)
+        if match:
+            total_amount = int(match.group(1).replace(',', ''))
+            items[6] = {
+                'title': '発行額',
+                'value': f'額面金額で{match.group(1)}円\n内訳（別表のとおり）',
+                'sub_number': None,
+                'structured_data': {'total_amount': total_amount}
+            }
+        
+        # 項目10: 発行日
+        match = re.search(r'10\s+発行日\s+(.+?)(?=\n11)', text, re.DOTALL)
+        if match:
+            items[10] = {
+                'title': '発行日',
+                'value': match.group(1).strip(),
+                'sub_number': None,
+                'structured_data': self._parse_date(match.group(1))
+            }
+        
+        # 別表の解析
+        table_data = self._parse_table(text)
+        if table_data:
+            # 別表の各行を項目6のサブ項目として追加
+            for i, row in enumerate(table_data, start=1):
+                items[f'6_{i}'] = {
+                    'title': '発行額（別表）',
+                    'value': self._format_table_row(row),
+                    'sub_number': i,
+                    'structured_data': row
+                }
+        
+        return items
     
-    def _parse_multiline_bond(self, lines: List[str], sub_index: int, format_type: int, common_legal_basis: Optional[str]) -> Optional[BondIssuance]:
-        try:
-            if format_type == 5:
-                if len(lines) < 5:
-                    return None
-                name_line = lines[0]
-                rate_line = lines[1]
-                date_line = lines[2]
-                legal_line = lines[3]
-                amount_line = lines[4]
-            else:
-                if len(lines) < 4:
-                    return None
-                name_line = lines[0]
-                rate_line = lines[1]
-                date_line = lines[2]
-                amount_line = lines[3]
-                legal_line = None
-            
-            bond_match = re.search(self.PATTERNS['bond_name_ritsuki'], name_line)
-            if not bond_match:
-                return None
-            
-            bond_type = bond_match.group(1)
-            series_number = f"第{bond_match.group(2)}回"
-            bond_name = bond_match.group(0)
-            
-            rate_match = re.search(self.PATTERNS['interest_rate'], rate_line)
-            interest_rate = float(rate_match.group(1)) if rate_match else 0.0
-            
-            maturity_date = date_line if '令和' in date_line else "不明"
-            
-            amount_match = re.search(self.PATTERNS['amount'], amount_line)
-            if amount_match:
-                amount_str = amount_match.group(1).replace(',', '')
-                face_value = float(amount_str)
-            else:
-                face_value = 0.0
-            
-            if format_type == 5 and legal_line:
-                legal_basis = legal_line
-            else:
-                legal_basis = common_legal_basis or "不明"
-            
-            return BondIssuance(
-                sub_index=sub_index,
-                bond_name=bond_name,
-                bond_type=bond_type,
-                series_number=series_number,
-                interest_rate=interest_rate,
-                maturity_date=maturity_date,
-                legal_basis=legal_basis,
-                face_value_individual=face_value
-            )
-        except Exception as e:
-            logger.error(f"銘柄パースエラー: {e}")
-            return None
+    def _parse_multiple_bond_names(self, text: str) -> List[str]:
+        """複数の銘柄名を抽出"""
+        # 例: "利付国庫債券（20年）（第167回、第171回、第179回及び第181回）"
+        bond_names = []
+        
+        # パターン1: 「及び」で区切られた複数の債券種類
+        parts = re.split(r'及び', text)
+        
+        for part in parts:
+            part = part.strip()
+            if '利付国庫債券' in part:
+                bond_names.append(part)
+        
+        return bond_names
     
-    def extract_bond_info_from_single(self, content: str) -> Optional[BondIssuance]:
-        try:
-            name_match = re.search(r'[１1]\s*名称及び記号\s*(.+?)(?:[２2]\s*発行の根拠|$)', content, re.DOTALL)
-            if not name_match:
-                return None
+    def _parse_laws(self, text: str) -> Dict[str, Any]:
+        """法令を抽出"""
+        laws = []
+        
+        # 全角→半角
+        text_normalized = text.replace('４', '4').replace('６', '6').replace('２', '2').replace('１', '1')
+        
+        # 特別会計法第46条
+        if re.search(r'特別会計.*?第46条第1項', text_normalized, re.DOTALL):
+            laws.append({
+                'name': '特別会計に関する法律',
+                'full_name': '特別会計に関する法律（平成19年法律第23号）',
+                'article': '第46条第1項',
+                'key': '特別会計に関する法律第46条第1項',
+                'amount': 0
+            })
+        
+        # 特別会計法第62条
+        if re.search(r'特別会計.*?第62条第1項', text_normalized, re.DOTALL):
+            laws.append({
+                'name': '特別会計に関する法律',
+                'full_name': '特別会計に関する法律（平成19年法律第23号）',
+                'article': '第62条第1項',
+                'key': '特別会計に関する法律第62条第1項',
+                'amount': 0
+            })
+        
+        return {'laws': laws}
+    
+    def _parse_date(self, text: str) -> Dict[str, Any]:
+        """発行日を解析"""
+        match = re.search(r'令和(\d+)年(\d+)月(\d+)日', text)
+        if match:
+            year = int(match.group(1)) + 2018
+            month = int(match.group(2))
+            day = int(match.group(3))
+            return {'issue_date': f'{year}-{month:02d}-{day:02d}'}
+        return {'raw': text}
+    
+    def _parse_table(self, text: str) -> List[Dict[str, Any]]:
+        """別表を解析"""
+        
+        # 別表の開始位置を探す
+        table_start = text.find('（別表）')
+        if table_start == -1:
+            return []
+        
+        table_text = text[table_start:]
+        
+        # 表の各行を抽出
+        rows = []
+        
+        # パターン: 利付国庫債券（XX年）（第XX回）\n利率\n償還期限\n法令\n発行額
+        pattern = r'利付国庫債券（(.+?)）（第(\d+)回）\s+([\d.]+)％\s+令和(\d+)年(\d+)月(\d+)日\s+特別会計に関する法律第(\d+)条第１項分\s+([\d,]+)円'
+        
+        matches = re.finditer(pattern, table_text)
+        
+        for match in matches:
+            bond_type = match.group(1)  # "20年", "30年", "40年"
+            series = match.group(2)
+            rate = float(match.group(3))
+            maturity_year = int(match.group(4)) + 2018
+            maturity_month = int(match.group(5))
+            maturity_day = int(match.group(6))
+            law_article = match.group(7)  # "46" or "62"
+            amount = int(match.group(8).replace(',', ''))
             
-            bond_name_text = name_match.group(1).strip()
-            bond_name_text = re.sub(r'\s+', '', bond_name_text)
+            # 法令のキー
+            law_key = f'特別会計に関する法律第{law_article}条第1項'
             
-            bond_type = "不明"
-            series_number = "不明"
-            bond_name = bond_name_text
+            row = {
+                'bond_name': f'利付国庫債券（{bond_type}）',
+                'bond_series': f'第{series}回',
+                'interest_rate': rate,
+                'maturity_date': f'{maturity_year}-{maturity_month:02d}-{maturity_day:02d}',
+                'law_key': law_key,
+                'law_article': f'第{law_article}条第1項',
+                'issue_amount': amount
+            }
             
-            bond_match = re.search(self.PATTERNS['bond_name_gx'], bond_name_text)
-            if bond_match:
-                bond_type = bond_match.group(1)
-                series_number = f"第{bond_match.group(2)}回"
-                bond_name = bond_match.group(0)
-            else:
-                bond_match = re.search(self.PATTERNS['bond_name_bukka'], bond_name_text)
-                if bond_match:
-                    bond_type = f"物価連動・{bond_match.group(1)}"
-                    series_number = f"第{bond_match.group(2)}回"
-                    bond_name = bond_match.group(0)
-                else:
-                    bond_match = re.search(self.PATTERNS['bond_name_ritsuki'], bond_name_text)
-                    if bond_match:
-                        bond_type = bond_match.group(1)
-                        series_number = f"第{bond_match.group(2)}回"
-                        bond_name = bond_match.group(0)
-                    else:
-                        bond_match = re.search(self.PATTERNS['bond_name_tanki'], bond_name_text)
-                        if bond_match:
-                            bond_type = "短期"
-                            series_number = f"第{bond_match.group(1)}回"
-                            bond_name = bond_match.group(0)
-                        else:
-                            bond_match = re.search(self.PATTERNS['bond_name_kojin'], bond_name_text)
-                            if bond_match:
-                                bond_type = bond_match.group(1)
-                                series_number = f"第{bond_match.group(2)}回"
-                                bond_name = bond_match.group(0)
-            
-            interest_rate = 0.0
-            rate_match = re.search(r'1[012]\s+(?:利率|　利率)\s+年([\d.]+)％', content)
-            if rate_match:
-                interest_rate = float(rate_match.group(1))
-            else:
-                rate_match = re.search(r'初期利子の適用利率\s+年([\d.]+)％', content)
-                if rate_match:
-                    interest_rate = float(rate_match.group(1))
-            
-            maturity_date = "不明"
-            maturity_match = re.search(r'1[2-9]\s+(?:償還期限|　償還期限)\s+(令和\d+年\d+月\d+日)', content)
-            if maturity_match:
-                maturity_date = maturity_match.group(1)
-            else:
-                maturity_match = re.search(r'1[2-9]\s*償還期限\s*(令和\d+年\d+月\d+日)', content)
-                if maturity_match:
-                    maturity_date = maturity_match.group(1)
-            
-            face_value = 0.0
-            amount_match = re.search(r'価格競争入札発行\s+額面金額で([\d,]+)円', content)
-            if amount_match:
-                amount_str = amount_match.group(1).replace(',', '')
-                face_value = float(amount_str)
-            else:
-                amount_match = re.search(r'[４４4５5６6]\s+(?:発行額|　発行額)\s+額面金額で([\d,]+)円', content)
-                if amount_match:
-                    amount_str = amount_match.group(1).replace(',', '')
-                    face_value = float(amount_str)
-            
-            legal_basis = "不明"
-            legal_match = re.search(r'[２2]\s*発行の根拠法律及びその条項\s*(.+?)(?:\n\s*[３3４4５5６6]|\n\n|振替法)', content, re.DOTALL)
-            if legal_match:
-                legal_basis = legal_match.group(1).strip()
-                legal_basis = re.sub(r'\s+', '', legal_basis)
-            
-            return BondIssuance(
-                sub_index=1,
-                bond_name=bond_name,
-                bond_type=bond_type,
-                series_number=series_number,
-                interest_rate=interest_rate,
-                maturity_date=maturity_date,
-                legal_basis=legal_basis,
-                face_value_individual=face_value
-            )
-        except Exception as e:
-            logger.error(f"単一銘柄の抽出エラー: {e}")
-            return None
+            rows.append(row)
+        
+        return rows
+    
+    def _format_table_row(self, row: Dict[str, Any]) -> str:
+        """表の行を文字列にフォーマット"""
+        return (f"{row['bond_name']}{row['bond_series']}: "
+                f"利率{row['interest_rate']}%, "
+                f"償還期限{row['maturity_date']}, "
+                f"{row['law_key']}, "
+                f"発行額{row['issue_amount']:,}円")
+
+
+# テスト用
+if __name__ == "__main__":
+    # サンプルテキスト（実際のファイルから）
+    sample_text = """
+    ６　　　　発行額　　　　額面金額で499,500,000,000円
+    内訳（別表のとおり）
+    
+    （別表）
+    名称及び記号
+    利率
+    （年）
+    償還期限
+    発行の根拠法律及びその条項
+    発行額
+    （額面金額）
+    利付国庫債券（20年）（第167回）
+    0.5％
+    令和20年12月20日
+    特別会計に関する法律第46条第１項分
+    42,000,000,000円
+    利付国庫債券（20年）（第171回）
+    0.3％
+    令和21年12月20日
+    特別会計に関する法律第46条第１項分
+    17,300,000,000円
+    """
+    
+    parser = TableParserV4()
+    if parser.can_parse(sample_text):
+        print("✅ このパーサーで処理可能")
+        items = parser.extract(sample_text)
+        print(f"抽出項目数: {len(items)}")
+    else:
+        print("❌ このパーサーでは処理不可")

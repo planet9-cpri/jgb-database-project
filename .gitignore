@@ -1,13 +1,28 @@
-@"
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-venv/
 env/
-ENV/
+venv/
+.venv/
+
+# 認証情報（絶対にコミットしない）
+*.json
+secrets/
+*.env
+.env
+
+# データファイル（大容量）
+data/
+*.csv
+*.txt
+*.xlsx
+
+# ログ
+logs/
+*.log
 
 # IDE
 .vscode/
@@ -15,19 +30,9 @@ ENV/
 *.swp
 *.swo
 
-# BigQuery�F�؏��
-*.json
-service-account-key.json
-
-# �f�[�^�t�@�C��
-data/
-*.txt
-tests/fixtures/*.txt
-
-# ���O
-*.log
-
 # OS
 .DS_Store
 Thumbs.db
-"@ | Set-Content .gitignore
+
+# BigQuery一時ファイル
+.bigquery/
