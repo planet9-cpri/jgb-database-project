@@ -1,0 +1,468 @@
+2025-10-31 12:31:10,611 [INFO] ================================================================================
+2025-10-31 12:31:10,611 [INFO] 直接パース方式バッチ処理 v7_fixed4 (真・最終完全版)
+2025-10-31 12:31:10,612 [INFO] ================================================================================
+2025-10-31 12:31:10,612 [INFO] プロジェクトID: jgb2023
+2025-10-31 12:31:10,612 [INFO] データセットID: 20251031
+2025-10-31 12:31:10,612 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 12:31:10,612 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 12:31:10,613 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 12:31:10,613 [WARNING] ⚠ リセットモード: 既存データを削除して再投入します
+2025-10-31 12:31:10,613 [INFO] ================================================================================
+2025-10-31 12:31:10,615 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-31 12:31:10,623 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 12:31:10,624 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-31 12:31:10,624 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-31 12:31:10,655 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-31 12:31:10,661 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-31 12:31:11,168 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-31 12:31:11,171 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-31 12:31:11,579 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 12:31:11,771 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:11,783 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 12:31:11,797 [INFO] ✓ .txtファイル: 179件
+2025-10-31 12:31:11,798 [INFO] 制限モード: 10件を処理します
+2025-10-31 12:31:12,001 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 12:31:12,204 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:12,214 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 12:31:12,214 [INFO] dedupe_key列の確認中...
+2025-10-31 12:31:12,656 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:12,890 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/e289242d-99fe-430b-a0c0-b07aca72cf7a?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:13,043 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/e289242d-99fe-430b-a0c0-b07aca72cf7a?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:13,047 [INFO] ✓ dedupe_key列の追加完了（既存の場合はスキップ）
+2025-10-31 12:31:13,047 [WARNING] ⚠ リセットモード: 既存データを削除します...
+2025-10-31 12:31:13,683 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:13,912 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/6955cfd2-cc2e-4781-b0eb-1995d0c96147?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:14,131 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/6955cfd2-cc2e-4781-b0eb-1995d0c96147?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:14,723 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:16,508 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1732ea83-70c6-4d07-82e1-41dbba49a6a9?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:16,611 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/1732ea83-70c6-4d07-82e1-41dbba49a6a9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:16,612 [WARNING] ✓ 既存データを削除しました: 54件
+2025-10-31 12:31:16,993 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:17,164 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/66c38bbe-d3fe-41c3-9fae-5aef8ddb1ba5?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:17,332 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/66c38bbe-d3fe-41c3-9fae-5aef8ddb1ba5?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:17,342 [INFO] ✓ PRIMARY KEY制約の追加完了
+2025-10-31 12:31:18,017 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:18,227 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f09f2ca1-3305-4fc1-9deb-bf30dea39760?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:18,420 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f09f2ca1-3305-4fc1-9deb-bf30dea39760?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:18,613 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:18,625 [DEBUG] ✓ NOT NULL制約はスキップ（データ存在時は不可）
+2025-10-31 12:31:18,828 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 12:31:18,994 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:18,995 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 12:31:19,002 [INFO] 
+2025-10-31 12:31:19,002 [INFO] ================================================================================
+2025-10-31 12:31:19,002 [INFO] 処理開始
+2025-10-31 12:31:19,003 [INFO] ================================================================================
+2025-10-31 12:31:19,003 [INFO] 
+2025-10-31 12:31:19,003 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 12:31:19,013 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 12:31:19,016 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:19,017 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:19,018 [DEBUG]   抽出成功: 23772.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:19,018 [DEBUG]   抽出成功: 5221.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:19,018 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:19,018 [INFO]   ✓ データ抽出: 2件
+2025-10-31 12:31:19,019 [INFO]   ✓ 合計金額: 28993.00億円
+2025-10-31 12:31:19,019 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_a208edce
+2025-10-31 12:31:19,200 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:19,201 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:19,201 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 12:31:19,852 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:19,940 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/870882a1-9082-4211-a1b8-6b44fce84e60?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:19,941 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 12:31:20,484 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/870882a1-9082-4211-a1b8-6b44fce84e60?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:20,485 [DEBUG] Retrying due to , sleeping 0.5s ...
+2025-10-31 12:31:21,068 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/870882a1-9082-4211-a1b8-6b44fce84e60?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:21,070 [DEBUG] Retrying due to , sleeping 1.4s ...
+2025-10-31 12:31:22,551 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/870882a1-9082-4211-a1b8-6b44fce84e60?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:22,551 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:23,246 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:23,363 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f1c14f30-ed08-455b-83ca-a6e37fa6d3c8?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:23,485 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f1c14f30-ed08-455b-83ca-a6e37fa6d3c8?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:23,486 [DEBUG]   挿入見込み件数: 2件
+2025-10-31 12:31:23,925 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:25,661 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/63e44238-83eb-4c4d-89fe-f190f25eb0a5?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:25,737 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/63e44238-83eb-4c4d-89fe-f190f25eb0a5?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:25,750 [DEBUG]   ✓ MERGE完了: 2件（staging経由）
+2025-10-31 12:31:25,750 [DEBUG]   ✓ 新規挿入: 2件
+2025-10-31 12:31:25,879 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_a208edce?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:31:25,880 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:31:25,880 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:31:26,136 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:26,150 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 12:31:26,160 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 12:31:26,160 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:26,161 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:26,162 [DEBUG]   抽出成功: 21962.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:26,162 [DEBUG]   抽出成功: 3.45億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:26,163 [DEBUG]   抽出成功: 5031.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:26,163 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:26,163 [INFO]   ✓ データ抽出: 3件
+2025-10-31 12:31:26,164 [INFO]   ✓ 合計金額: 26996.45億円
+2025-10-31 12:31:26,164 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_add78d21
+2025-10-31 12:31:26,338 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:26,356 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:26,357 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 12:31:26,941 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:26,999 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/32993f9c-3931-443b-aa4b-544765301956?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:27,000 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 12:31:27,467 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/32993f9c-3931-443b-aa4b-544765301956?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:27,468 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:31:28,088 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/32993f9c-3931-443b-aa4b-544765301956?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:28,090 [DEBUG] Retrying due to , sleeping 1.3s ...
+2025-10-31 12:31:29,414 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/32993f9c-3931-443b-aa4b-544765301956?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:29,415 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:29,996 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:30,110 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/2570bb83-bb83-43f4-9b0f-b6bd5fdd38c0?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:30,182 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/2570bb83-bb83-43f4-9b0f-b6bd5fdd38c0?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:30,182 [DEBUG]   挿入見込み件数: 3件
+2025-10-31 12:31:30,592 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:32,271 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f185770f-77a9-4cd7-b5a1-ea99675143be?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:32,339 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f185770f-77a9-4cd7-b5a1-ea99675143be?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:32,340 [DEBUG]   ✓ MERGE完了: 3件（staging経由）
+2025-10-31 12:31:32,340 [DEBUG]   ✓ 新規挿入: 3件
+2025-10-31 12:31:32,432 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_add78d21?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:31:32,432 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:31:32,432 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:31:32,473 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:32,476 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 12:31:32,487 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 12:31:32,488 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:32,488 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:32,489 [DEBUG]   抽出成功: 7282.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:32,489 [DEBUG]   抽出成功: 1709.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:32,490 [DEBUG]   抽出成功: 873.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:32,490 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:32,490 [INFO]   ✓ データ抽出: 3件
+2025-10-31 12:31:32,490 [INFO]   ✓ 合計金額: 9864.00億円
+2025-10-31 12:31:32,491 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_8c96b422
+2025-10-31 12:31:32,641 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:32,642 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:32,642 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 12:31:33,151 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:33,210 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/d040ab5f-cc9c-40f9-abb3-4c3d6a13a20d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:33,211 [DEBUG] Retrying due to , sleeping 0.7s ...
+2025-10-31 12:31:33,996 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/d040ab5f-cc9c-40f9-abb3-4c3d6a13a20d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:33,998 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 12:31:34,454 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/d040ab5f-cc9c-40f9-abb3-4c3d6a13a20d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:34,455 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 12:31:35,435 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/d040ab5f-cc9c-40f9-abb3-4c3d6a13a20d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:35,436 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:35,945 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:36,016 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/41dc9583-466a-465d-a24e-9e3245559099?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:36,199 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/41dc9583-466a-465d-a24e-9e3245559099?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:36,200 [DEBUG]   挿入見込み件数: 3件
+2025-10-31 12:31:36,540 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:38,292 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/836a79fe-aa8d-411d-af31-efd04653b7be?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:38,342 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/836a79fe-aa8d-411d-af31-efd04653b7be?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:38,344 [DEBUG]   ✓ MERGE完了: 3件（staging経由）
+2025-10-31 12:31:38,344 [DEBUG]   ✓ 新規挿入: 3件
+2025-10-31 12:31:38,448 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_8c96b422?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:31:38,448 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:31:38,449 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:31:38,551 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:38,553 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 12:31:38,563 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 12:31:38,563 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:38,564 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:38,564 [DEBUG]   抽出成功: 88.38億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:31:38,565 [DEBUG]   抽出成功: 88.38億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:38,565 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:38,565 [INFO]   ✓ データ抽出: 2件
+2025-10-31 12:31:38,565 [INFO]   ✓ 合計金額: 176.75億円
+2025-10-31 12:31:38,566 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_28ef56e4
+2025-10-31 12:31:38,717 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:38,718 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:38,719 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 12:31:39,471 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:39,549 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:39,550 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:31:40,160 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:40,161 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:31:40,879 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:40,880 [DEBUG] Retrying due to , sleeping 0.5s ...
+2025-10-31 12:31:41,472 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:41,473 [DEBUG] Retrying due to , sleeping 0.3s ...
+2025-10-31 12:31:41,809 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:41,810 [DEBUG] Retrying due to , sleeping 1.7s ...
+2025-10-31 12:31:43,627 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/67f1ad1c-b69e-4887-96fb-a758ad3dcbde?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:43,628 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:44,241 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:44,338 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1a9fe8ee-f72a-4616-8763-d12537b9c19c?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:44,416 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1a9fe8ee-f72a-4616-8763-d12537b9c19c?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:44,417 [DEBUG]   挿入見込み件数: 2件
+2025-10-31 12:31:44,787 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:46,476 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/9542d40e-869e-4e6e-a636-10c163f42efa?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:46,530 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/9542d40e-869e-4e6e-a636-10c163f42efa?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:46,530 [DEBUG]   ✓ MERGE完了: 2件（staging経由）
+2025-10-31 12:31:46,531 [DEBUG]   ✓ 新規挿入: 2件
+2025-10-31 12:31:46,633 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_28ef56e4?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:31:46,634 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:31:46,634 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:31:46,704 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:46,706 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 12:31:46,715 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 12:31:46,716 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:46,716 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:46,717 [DEBUG]   抽出成功: 20319.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:46,718 [DEBUG]   抽出成功: 10.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:46,718 [DEBUG]   抽出成功: 4662.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:46,718 [DEBUG]   抽出成功: 1989.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:46,718 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:46,719 [INFO]   ✓ データ抽出: 4件
+2025-10-31 12:31:46,719 [INFO]   ✓ 合計金額: 26980.00億円
+2025-10-31 12:31:46,719 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_cea10270
+2025-10-31 12:31:46,860 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:46,861 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:46,861 [DEBUG]   ✓ 行の変換・バリデーション完了: 4件
+2025-10-31 12:31:47,417 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:47,474 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:47,476 [DEBUG] Retrying due to , sleeping 0.2s ...
+2025-10-31 12:31:47,740 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:47,741 [DEBUG] Retrying due to , sleeping 0.0s ...
+2025-10-31 12:31:47,801 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:47,802 [DEBUG] Retrying due to , sleeping 0.3s ...
+2025-10-31 12:31:48,147 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:48,148 [DEBUG] Retrying due to , sleeping 0.1s ...
+2025-10-31 12:31:48,331 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:48,332 [DEBUG] Retrying due to , sleeping 2.7s ...
+2025-10-31 12:31:51,107 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f38088f9-714e-41dd-bb0d-80de8e47f1d8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:51,108 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:51,604 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:51,693 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f8231b8d-16f6-4018-9672-e609d49031a1?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:51,770 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f8231b8d-16f6-4018-9672-e609d49031a1?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:51,771 [DEBUG]   挿入見込み件数: 4件
+2025-10-31 12:31:52,173 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:54,448 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/242e684b-ea82-46eb-8690-299922928d34?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:54,505 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/242e684b-ea82-46eb-8690-299922928d34?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:54,506 [DEBUG]   ✓ MERGE完了: 4件（staging経由）
+2025-10-31 12:31:54,507 [DEBUG]   ✓ 新規挿入: 4件
+2025-10-31 12:31:54,642 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_cea10270?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:31:54,643 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:31:54,644 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:31:54,688 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:54,689 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 12:31:54,699 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 12:31:54,700 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:31:54,700 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:31:54,700 [DEBUG]   抽出成功: 9.51億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:31:54,701 [DEBUG]   抽出成功: 9.51億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:31:54,701 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:31:54,701 [INFO]   ✓ データ抽出: 2件
+2025-10-31 12:31:54,701 [INFO]   ✓ 合計金額: 19.02億円
+2025-10-31 12:31:54,702 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_9522793b
+2025-10-31 12:31:54,893 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:54,895 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:31:54,896 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 12:31:55,394 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:31:55,455 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a558f30d-2bfc-4b72-a6ff-73a9139ec015?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:55,456 [DEBUG] Retrying due to , sleeping 0.0s ...
+2025-10-31 12:31:55,543 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a558f30d-2bfc-4b72-a6ff-73a9139ec015?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:55,544 [DEBUG] Retrying due to , sleeping 1.5s ...
+2025-10-31 12:31:57,079 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a558f30d-2bfc-4b72-a6ff-73a9139ec015?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:57,080 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:31:57,682 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a558f30d-2bfc-4b72-a6ff-73a9139ec015?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:57,683 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:31:58,204 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:58,330 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/79834db7-b499-4215-aaa9-8e41c7f99615?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:58,448 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/79834db7-b499-4215-aaa9-8e41c7f99615?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:31:58,449 [DEBUG]   挿入見込み件数: 2件
+2025-10-31 12:31:58,798 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:00,507 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/2127972c-4a14-441a-83a0-196e1354f7f2?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:00,603 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2127972c-4a14-441a-83a0-196e1354f7f2?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:00,604 [DEBUG]   ✓ MERGE完了: 2件（staging経由）
+2025-10-31 12:32:00,604 [DEBUG]   ✓ 新規挿入: 2件
+2025-10-31 12:32:00,688 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_9522793b?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:32:00,689 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:32:00,689 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:32:00,738 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:00,739 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 12:32:00,756 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 12:32:00,756 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:32:00,757 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:32:00,757 [DEBUG]   抽出成功: 4995.00億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:32:00,758 [DEBUG]   抽出成功: 4995.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:32:00,758 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 12:32:00,758 [INFO]   ✓ データ抽出: 2件
+2025-10-31 12:32:00,759 [INFO]   ✓ 合計金額: 9990.00億円
+2025-10-31 12:32:00,759 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_bf399b44
+2025-10-31 12:32:00,907 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:00,909 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:32:00,909 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 12:32:01,386 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:32:01,460 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/aafa1ebe-1fd9-433a-9771-ca41e557c9fe?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:01,462 [DEBUG] Retrying due to , sleeping 0.0s ...
+2025-10-31 12:32:01,554 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/aafa1ebe-1fd9-433a-9771-ca41e557c9fe?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:01,555 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:32:02,196 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/aafa1ebe-1fd9-433a-9771-ca41e557c9fe?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:02,200 [DEBUG] Retrying due to , sleeping 0.3s ...
+2025-10-31 12:32:02,507 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/aafa1ebe-1fd9-433a-9771-ca41e557c9fe?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:02,508 [DEBUG] Retrying due to , sleeping 1.4s ...
+2025-10-31 12:32:03,938 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/aafa1ebe-1fd9-433a-9771-ca41e557c9fe?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:03,939 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:32:04,466 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:04,534 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/18cf9709-90f7-45ba-ba4e-23cad5998198?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:04,618 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/18cf9709-90f7-45ba-ba4e-23cad5998198?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:04,619 [DEBUG]   挿入見込み件数: 2件
+2025-10-31 12:32:05,027 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:06,765 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1015467c-31d9-4570-b76d-3523d48e591b?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:06,824 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/1015467c-31d9-4570-b76d-3523d48e591b?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:06,827 [DEBUG]   ✓ MERGE完了: 2件（staging経由）
+2025-10-31 12:32:06,827 [DEBUG]   ✓ 新規挿入: 2件
+2025-10-31 12:32:06,927 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_bf399b44?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:32:06,928 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:32:06,928 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:32:06,987 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:06,988 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 12:32:06,998 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 12:32:06,998 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:32:06,999 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:32:06,999 [DEBUG]   抽出成功: 611.14億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 12:32:06,999 [DEBUG]   抽出成功: 611.14億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:32:07,000 [DEBUG]   抽出成功: 611.14億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:32:07,000 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 12:32:07,000 [INFO]   ✓ データ抽出: 3件
+2025-10-31 12:32:07,000 [INFO]   ✓ 合計金額: 1833.42億円
+2025-10-31 12:32:07,000 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_534212ef
+2025-10-31 12:32:07,197 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:07,198 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:32:07,198 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 12:32:07,936 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2630
+2025-10-31 12:32:07,974 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/5d9cd6f4-30a1-4593-b9d6-d6e2da91338d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:07,975 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 12:32:08,450 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/5d9cd6f4-30a1-4593-b9d6-d6e2da91338d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:08,451 [DEBUG] Retrying due to , sleeping 0.3s ...
+2025-10-31 12:32:08,882 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/5d9cd6f4-30a1-4593-b9d6-d6e2da91338d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:08,883 [DEBUG] Retrying due to , sleeping 1.5s ...
+2025-10-31 12:32:10,396 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/5d9cd6f4-30a1-4593-b9d6-d6e2da91338d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:10,397 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:32:10,908 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:11,006 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/31a7a807-b0fa-4baa-a4f4-fe9a4d88f43f?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:11,077 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/31a7a807-b0fa-4baa-a4f4-fe9a4d88f43f?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:11,078 [DEBUG]   挿入見込み件数: 3件
+2025-10-31 12:32:11,427 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,097 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/3f6be0f5-2ecb-46a9-b000-ac54af4195c2?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,175 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/3f6be0f5-2ecb-46a9-b000-ac54af4195c2?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,177 [DEBUG]   ✓ MERGE完了: 3件（staging経由）
+2025-10-31 12:32:13,177 [DEBUG]   ✓ 新規挿入: 3件
+2025-10-31 12:32:13,282 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_534212ef?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:32:13,283 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:32:13,283 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:32:13,299 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,300 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 12:32:13,309 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 12:32:13,309 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:32:13,310 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:32:13,310 [DEBUG]   抽出成功: 2765.21億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 12:32:13,310 [DEBUG]   抽出成功: 2765.21億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:32:13,311 [DEBUG]   抽出成功: 2765.21億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:32:13,311 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 12:32:13,311 [INFO]   ✓ データ抽出: 3件
+2025-10-31 12:32:13,311 [INFO]   ✓ 合計金額: 8295.64億円
+2025-10-31 12:32:13,311 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_857c19a4
+2025-10-31 12:32:13,454 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,456 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:32:13,456 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 12:32:13,932 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:32:13,980 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/58d41662-54d4-453b-982b-cf4775fc0883?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:13,981 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 12:32:14,906 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/58d41662-54d4-453b-982b-cf4775fc0883?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:14,907 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 12:32:15,865 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/58d41662-54d4-453b-982b-cf4775fc0883?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:15,867 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:32:16,449 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:16,538 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b2dc8fb0-b7ce-4d73-80eb-b7992abdde05?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:16,621 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b2dc8fb0-b7ce-4d73-80eb-b7992abdde05?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:16,622 [DEBUG]   挿入見込み件数: 3件
+2025-10-31 12:32:16,938 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:18,335 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/5afdd683-fb9a-444f-a10f-8d02e6fbe1c9?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:18,380 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/5afdd683-fb9a-444f-a10f-8d02e6fbe1c9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:18,381 [DEBUG]   ✓ MERGE完了: 3件（staging経由）
+2025-10-31 12:32:18,381 [DEBUG]   ✓ 新規挿入: 3件
+2025-10-31 12:32:18,513 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_857c19a4?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:32:18,514 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:32:18,514 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:32:18,606 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:18,607 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 12:32:18,615 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 12:32:18,615 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 12:32:18,616 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 12:32:18,616 [DEBUG]   抽出成功: 165.15億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 12:32:18,616 [DEBUG]   抽出成功: 165.15億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 12:32:18,616 [DEBUG]   抽出成功: 165.15億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 12:32:18,617 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 12:32:18,617 [INFO]   ✓ データ抽出: 3件
+2025-10-31 12:32:18,617 [INFO]   ✓ 合計金額: 495.46億円
+2025-10-31 12:32:18,617 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_98becef7
+2025-10-31 12:32:18,766 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:18,767 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 12:32:18,767 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 12:32:19,372 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 12:32:19,424 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:19,425 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 12:32:20,120 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:20,121 [DEBUG] Retrying due to , sleeping 0.0s ...
+2025-10-31 12:32:20,210 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:20,211 [DEBUG] Retrying due to , sleeping 0.5s ...
+2025-10-31 12:32:20,716 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:20,718 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 12:32:21,172 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:21,173 [DEBUG] Retrying due to , sleeping 2.8s ...
+2025-10-31 12:32:24,003 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/a691a739-1a02-4a46-9249-6df652b9602d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:24,004 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 12:32:24,519 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:24,621 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/c9c5416b-da47-4a42-a814-1f7ffe8796de?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:24,691 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/c9c5416b-da47-4a42-a814-1f7ffe8796de?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:24,692 [DEBUG]   挿入見込み件数: 3件
+2025-10-31 12:32:24,993 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:26,677 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b39d82e0-c82f-458e-81c0-7a5d3b84a027?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:26,718 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/b39d82e0-c82f-458e-81c0-7a5d3b84a027?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:26,719 [DEBUG]   ✓ MERGE完了: 3件（staging経由）
+2025-10-31 12:32:26,719 [DEBUG]   ✓ 新規挿入: 3件
+2025-10-31 12:32:26,786 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_98becef7?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 12:32:26,786 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 12:32:26,787 [INFO]   ✓ 成功: Layer2へMERGE完了
+2025-10-31 12:32:26,830 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:26,830 [INFO] 
+2025-10-31 12:32:26,831 [INFO] ================================================================================
+2025-10-31 12:32:26,831 [INFO] 処理結果
+2025-10-31 12:32:26,831 [INFO] ================================================================================
+2025-10-31 12:32:26,831 [INFO] 総ファイル数: 10件
+2025-10-31 12:32:26,832 [INFO] 成功: 10件
+2025-10-31 12:32:26,832 [INFO] 重複: 0件
+2025-10-31 12:32:26,832 [INFO] 失敗: 0件
+2025-10-31 12:32:26,832 [INFO] スキップ: 0件
+2025-10-31 12:32:26,833 [INFO] 成功率: 100.0%
+2025-10-31 12:32:26,833 [INFO] 総レコード数: 27件
+2025-10-31 12:32:26,833 [INFO] 総発行額: 11.36兆円
+2025-10-31 12:32:26,833 [INFO] ================================================================================
+2025-10-31 12:32:27,339 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:27,415 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/e61fabb0-4797-4831-b540-3e938782a55e?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:27,524 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/e61fabb0-4797-4831-b540-3e938782a55e?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:27,526 [INFO] 
+Layer2 総レコード数: 27件
+2025-10-31 12:32:27,964 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,132 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/266005ce-c12f-45eb-a82d-4ece6acd1d33?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,194 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/266005ce-c12f-45eb-a82d-4ece6acd1d33?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,195 [INFO] 
+✓ 重複なし
+2025-10-31 12:32:28,195 [INFO] 
+サンプルレコード（金額上位5件）:
+2025-10-31 12:32:28,703 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,789 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a82cebb2-4691-49bc-a8cc-e65f122cc31c?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,884 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a82cebb2-4691-49bc-a8cc-e65f122cc31c?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 12:32:28,885 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 2,377,200,000,000円 (23772.00億円) [未分類]
+2025-10-31 12:32:28,886 [DEBUG]     dedupe_key: 8cf949ef73f09dc5...
+2025-10-31 12:32:28,886 [INFO]   20230405_令和5年5月9日付（財務省第百二十三号）: 2,196,200,000,000円 (21962.00億円) [未分類]
+2025-10-31 12:32:28,886 [DEBUG]     dedupe_key: ae68d975be8fb104...
+2025-10-31 12:32:28,887 [INFO]   20230412_令和5年5月9日付（財務省第百二十二号）: 2,031,900,000,000円 (20319.00億円) [未分類]
+2025-10-31 12:32:28,887 [DEBUG]     dedupe_key: f0b22b2a643ce982...
+2025-10-31 12:32:28,887 [INFO]   20230407_令和5年5月9日付（財務省第百二十五号）: 728,200,000,000円 (7282.00億円) [未分類]
+2025-10-31 12:32:28,887 [DEBUG]     dedupe_key: 2d0e5ffb4f465a85...
+2025-10-31 12:32:28,887 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 522,100,000,000円 (5221.00億円) [未分類]
+2025-10-31 12:32:28,889 [DEBUG]     dedupe_key: 30f705b22e9333bd...
+2025-10-31 12:32:28,889 [INFO] 
+2025-10-31 12:32:28,889 [INFO] ================================================================================
+2025-10-31 12:32:28,889 [INFO] 処理完了
+2025-10-31 12:32:28,889 [INFO] ================================================================================
+2025-10-31 12:32:28,890 [INFO] 詳細ログ: batch_processing_v7_fixed4.log

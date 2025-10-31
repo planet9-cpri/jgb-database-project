@@ -1,0 +1,664 @@
+2025-10-31 10:30:25,514 [INFO] ================================================================================
+2025-10-31 10:30:25,515 [INFO] 直接パース方式バッチ処理 v7_fixed2 (完全版)
+2025-10-31 10:30:25,515 [INFO] ================================================================================
+2025-10-31 10:30:25,516 [INFO] プロジェクトID: jgb2023
+2025-10-31 10:30:25,516 [INFO] データセットID: 20251031
+2025-10-31 10:30:25,516 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 10:30:25,516 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 10:30:25,517 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 10:30:25,517 [INFO] ================================================================================
+2025-10-31 10:30:25,519 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-31 10:30:25,524 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 10:30:25,525 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-31 10:30:25,525 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-31 10:30:25,552 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-31 10:30:25,558 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-31 10:30:26,001 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-31 10:30:26,003 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-31 10:30:26,401 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 10:30:26,552 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:26,553 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 10:30:26,559 [INFO] ✓ .txtファイル: 179件
+2025-10-31 10:30:26,560 [INFO] 制限モード: 10件を処理します
+2025-10-31 10:30:26,720 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 10:30:26,866 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:26,867 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 10:30:27,033 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 10:30:27,192 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:27,193 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 10:30:27,196 [INFO] 
+2025-10-31 10:30:27,196 [INFO] ================================================================================
+2025-10-31 10:30:27,196 [INFO] 処理開始
+2025-10-31 10:30:27,196 [INFO] ================================================================================
+2025-10-31 10:30:27,196 [INFO] 
+2025-10-31 10:30:27,196 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 10:30:27,205 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 10:30:27,206 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:27,206 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:27,207 [DEBUG]   抽出成功: 23772.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:27,207 [DEBUG]   抽出成功: 5221.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:27,208 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:27,208 [INFO]   ✓ データ抽出: 2件
+2025-10-31 10:30:27,208 [INFO]   ✓ 合計金額: 28993.00億円
+2025-10-31 10:30:27,209 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_4f6f87c5
+2025-10-31 10:30:27,364 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:27,365 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:27,366 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 10:30:28,124 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:28,230 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/6272c327-c021-43e8-9c37-03d1b3c942c8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:28,231 [DEBUG] Retrying due to , sleeping 0.2s ...
+2025-10-31 10:30:28,545 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/6272c327-c021-43e8-9c37-03d1b3c942c8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:28,547 [DEBUG] Retrying due to , sleeping 1.0s ...
+2025-10-31 10:30:29,604 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/6272c327-c021-43e8-9c37-03d1b3c942c8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:29,605 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 10:30:30,265 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/6272c327-c021-43e8-9c37-03d1b3c942c8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:30,266 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:30,686 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:30,687 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: cf027850-2d19-46a1-a1ba-4aaa24b8b6ec
+
+2025-10-31 10:30:30,807 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_4f6f87c5?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:30,808 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:30,808 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:31,060 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:31,061 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 10:30:31,069 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 10:30:31,069 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:31,070 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:31,070 [DEBUG]   抽出成功: 21962.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:31,070 [DEBUG]   抽出成功: 3.45億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:31,071 [DEBUG]   抽出成功: 5031.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:31,071 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:31,071 [INFO]   ✓ データ抽出: 3件
+2025-10-31 10:30:31,071 [INFO]   ✓ 合計金額: 26996.45億円
+2025-10-31 10:30:31,071 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_da9e3935
+2025-10-31 10:30:31,392 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:31,393 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:31,393 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 10:30:32,089 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:32,132 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f2690b03-78da-40f1-8f67-e6d3b46965d3?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:32,133 [DEBUG] Retrying due to , sleeping 0.8s ...
+2025-10-31 10:30:33,007 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f2690b03-78da-40f1-8f67-e6d3b46965d3?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:33,009 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 10:30:33,636 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f2690b03-78da-40f1-8f67-e6d3b46965d3?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:33,637 [DEBUG] Retrying due to , sleeping 1.1s ...
+2025-10-31 10:30:34,873 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/f2690b03-78da-40f1-8f67-e6d3b46965d3?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:34,874 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:35,242 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:35,243 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: 8055dd57-70cb-4747-a585-d289a3f8fb12
+
+2025-10-31 10:30:35,379 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_da9e3935?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:35,380 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:35,380 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:35,578 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:35,579 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 10:30:35,587 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 10:30:35,588 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:35,588 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:35,588 [DEBUG]   抽出成功: 7282.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:35,589 [DEBUG]   抽出成功: 1709.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:35,589 [DEBUG]   抽出成功: 873.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:35,589 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:35,589 [INFO]   ✓ データ抽出: 3件
+2025-10-31 10:30:35,589 [INFO]   ✓ 合計金額: 9864.00億円
+2025-10-31 10:30:35,590 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_67ecc059
+2025-10-31 10:30:35,781 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:35,782 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:35,782 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 10:30:36,449 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:36,507 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/19e4fce7-53ad-44ca-9b6c-3a8d16cb623d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:36,508 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 10:30:36,958 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/19e4fce7-53ad-44ca-9b6c-3a8d16cb623d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:36,959 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 10:30:37,874 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/19e4fce7-53ad-44ca-9b6c-3a8d16cb623d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:37,876 [DEBUG] Retrying due to , sleeping 1.6s ...
+2025-10-31 10:30:39,519 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/19e4fce7-53ad-44ca-9b6c-3a8d16cb623d?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:39,520 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:39,860 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:39,861 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: 8d1e3b15-3fde-45d8-9879-bd4efacd2afd
+
+2025-10-31 10:30:39,943 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_67ecc059?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:39,944 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:39,944 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:40,075 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:40,076 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 10:30:40,083 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 10:30:40,084 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:40,084 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:40,084 [DEBUG]   抽出成功: 88.38億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:30:40,085 [DEBUG]   抽出成功: 88.38億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:40,085 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:40,085 [INFO]   ✓ データ抽出: 2件
+2025-10-31 10:30:40,086 [INFO]   ✓ 合計金額: 176.75億円
+2025-10-31 10:30:40,086 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_74855b7c
+2025-10-31 10:30:40,224 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:40,225 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:40,225 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 10:30:40,761 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:40,826 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/b4a3f196-e7b5-4f8c-bf33-63234fd052c9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:40,827 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 10:30:41,480 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/b4a3f196-e7b5-4f8c-bf33-63234fd052c9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:41,481 [DEBUG] Retrying due to , sleeping 0.6s ...
+2025-10-31 10:30:42,089 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/b4a3f196-e7b5-4f8c-bf33-63234fd052c9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:42,089 [DEBUG] Retrying due to , sleeping 1.0s ...
+2025-10-31 10:30:43,178 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/b4a3f196-e7b5-4f8c-bf33-63234fd052c9?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:43,179 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:43,442 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:43,443 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: ab7fd7dc-0e34-4e86-9f64-c56667520773
+
+2025-10-31 10:30:43,569 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_74855b7c?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:43,570 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:43,570 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:43,709 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:43,710 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 10:30:43,716 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 10:30:43,717 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:43,717 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:43,718 [DEBUG]   抽出成功: 20319.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:43,718 [DEBUG]   抽出成功: 10.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:43,718 [DEBUG]   抽出成功: 4662.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:43,718 [DEBUG]   抽出成功: 1989.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:43,719 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:43,719 [INFO]   ✓ データ抽出: 4件
+2025-10-31 10:30:43,719 [INFO]   ✓ 合計金額: 26980.00億円
+2025-10-31 10:30:43,720 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_807d5f2a
+2025-10-31 10:30:43,883 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:43,884 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:43,884 [DEBUG]   ✓ 行の変換・バリデーション完了: 4件
+2025-10-31 10:30:44,550 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:44,600 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/693e3163-bdb4-4d28-a747-6403582c32b6?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:44,601 [DEBUG] Retrying due to , sleeping 0.5s ...
+2025-10-31 10:30:45,215 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/693e3163-bdb4-4d28-a747-6403582c32b6?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:45,216 [DEBUG] Retrying due to , sleeping 0.4s ...
+2025-10-31 10:30:45,649 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/693e3163-bdb4-4d28-a747-6403582c32b6?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:45,650 [DEBUG] Retrying due to , sleeping 0.7s ...
+2025-10-31 10:30:46,471 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/693e3163-bdb4-4d28-a747-6403582c32b6?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:46,471 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:46,779 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:46,780 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: eece72c6-09b5-4195-aa85-0f0bfdaf4a16
+
+2025-10-31 10:30:46,886 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_807d5f2a?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:46,886 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:46,886 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:46,933 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:46,934 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 10:30:46,941 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 10:30:46,941 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:46,942 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:46,942 [DEBUG]   抽出成功: 9.51億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:30:46,942 [DEBUG]   抽出成功: 9.51億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:46,943 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:46,943 [INFO]   ✓ データ抽出: 2件
+2025-10-31 10:30:46,943 [INFO]   ✓ 合計金額: 19.02億円
+2025-10-31 10:30:46,943 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_9090291f
+2025-10-31 10:30:47,149 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:47,150 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:47,150 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 10:30:47,903 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:47,971 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/66d6228b-17eb-4544-a6c1-5f4d83c73e2b?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:47,972 [DEBUG] Retrying due to , sleeping 0.2s ...
+2025-10-31 10:30:48,265 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/66d6228b-17eb-4544-a6c1-5f4d83c73e2b?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:48,266 [DEBUG] Retrying due to , sleeping 1.2s ...
+2025-10-31 10:30:49,568 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/66d6228b-17eb-4544-a6c1-5f4d83c73e2b?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:49,570 [DEBUG] Retrying due to , sleeping 2.1s ...
+2025-10-31 10:30:51,728 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/66d6228b-17eb-4544-a6c1-5f4d83c73e2b?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:51,729 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:51,988 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:51,989 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: 8f8ed951-f2ae-4b12-a20a-f78a90ad233d
+
+2025-10-31 10:30:52,104 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_9090291f?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:52,105 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:52,106 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:52,150 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:52,150 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 10:30:52,165 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 10:30:52,165 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:52,166 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:52,166 [DEBUG]   抽出成功: 4995.00億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:30:52,167 [DEBUG]   抽出成功: 4995.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:52,167 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-31 10:30:52,167 [INFO]   ✓ データ抽出: 2件
+2025-10-31 10:30:52,167 [INFO]   ✓ 合計金額: 9990.00億円
+2025-10-31 10:30:52,167 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_8651e152
+2025-10-31 10:30:52,326 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:52,327 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:52,328 [DEBUG]   ✓ 行の変換・バリデーション完了: 2件
+2025-10-31 10:30:52,851 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:52,900 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2e6dec89-8de5-4dca-bb15-0c4e07e9e089?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:52,901 [DEBUG] Retrying due to , sleeping 0.2s ...
+2025-10-31 10:30:53,277 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2e6dec89-8de5-4dca-bb15-0c4e07e9e089?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:53,278 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 10:30:54,240 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2e6dec89-8de5-4dca-bb15-0c4e07e9e089?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:54,241 [DEBUG] Retrying due to , sleeping 0.0s ...
+2025-10-31 10:30:54,342 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2e6dec89-8de5-4dca-bb15-0c4e07e9e089?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:54,343 [DEBUG] Retrying due to , sleeping 1.0s ...
+2025-10-31 10:30:55,431 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/2e6dec89-8de5-4dca-bb15-0c4e07e9e089?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:55,432 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:55,751 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:55,753 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: dcdce9bc-80b9-4106-b0a4-e0bb4b6e1efa
+
+2025-10-31 10:30:55,857 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_8651e152?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:55,858 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:55,858 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:55,892 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:55,893 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 10:30:55,901 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 10:30:55,902 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:55,903 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:55,903 [DEBUG]   抽出成功: 611.14億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 10:30:55,904 [DEBUG]   抽出成功: 611.14億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:30:55,904 [DEBUG]   抽出成功: 611.14億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:55,904 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 10:30:55,905 [INFO]   ✓ データ抽出: 3件
+2025-10-31 10:30:55,905 [INFO]   ✓ 合計金額: 1833.42億円
+2025-10-31 10:30:55,905 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_f7acf8a1
+2025-10-31 10:30:56,087 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:56,088 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:56,089 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 10:30:56,654 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:56,691 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/7a0fe3b3-bf23-4260-bc63-44302f135df8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:56,692 [DEBUG] Retrying due to , sleeping 0.1s ...
+2025-10-31 10:30:56,814 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/7a0fe3b3-bf23-4260-bc63-44302f135df8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:56,815 [DEBUG] Retrying due to , sleeping 1.5s ...
+2025-10-31 10:30:58,360 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/7a0fe3b3-bf23-4260-bc63-44302f135df8?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:58,361 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:30:58,626 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:58,627 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: 102ca22e-304f-414d-b40f-971e31c700e5
+
+2025-10-31 10:30:58,712 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_f7acf8a1?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:30:58,712 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:30:58,713 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:30:58,823 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:58,824 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 10:30:58,832 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 10:30:58,832 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:30:58,833 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:30:58,833 [DEBUG]   抽出成功: 2765.21億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 10:30:58,833 [DEBUG]   抽出成功: 2765.21億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:30:58,834 [DEBUG]   抽出成功: 2765.21億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:30:58,834 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 10:30:58,834 [INFO]   ✓ データ抽出: 3件
+2025-10-31 10:30:58,834 [INFO]   ✓ 合計金額: 8295.64億円
+2025-10-31 10:30:58,835 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_b3954ff3
+2025-10-31 10:30:58,997 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:58,998 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:30:58,998 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 10:30:59,643 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:30:59,684 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/9c812a7d-372b-4f0a-b3ff-aec3b843ca19?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:30:59,685 [DEBUG] Retrying due to , sleeping 0.3s ...
+2025-10-31 10:31:00,017 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/9c812a7d-372b-4f0a-b3ff-aec3b843ca19?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:00,018 [DEBUG] Retrying due to , sleeping 1.4s ...
+2025-10-31 10:31:01,479 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/9c812a7d-372b-4f0a-b3ff-aec3b843ca19?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:01,480 [DEBUG] Retrying due to , sleeping 1.1s ...
+2025-10-31 10:31:02,667 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/9c812a7d-372b-4f0a-b3ff-aec3b843ca19?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:02,668 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:31:02,998 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:02,999 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: 21e5059a-92b9-403b-8d34-f69641e8fbf0
+
+2025-10-31 10:31:03,085 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_b3954ff3?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:31:03,086 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:31:03,086 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:31:03,146 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:03,147 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 10:31:03,157 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 10:31:03,158 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 10:31:03,158 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 10:31:03,158 [DEBUG]   抽出成功: 165.15億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 10:31:03,158 [DEBUG]   抽出成功: 165.15億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 10:31:03,159 [DEBUG]   抽出成功: 165.15億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 10:31:03,159 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-31 10:31:03,160 [INFO]   ✓ データ抽出: 3件
+2025-10-31 10:31:03,160 [INFO]   ✓ 合計金額: 495.46億円
+2025-10-31 10:31:03,160 [DEBUG]   ステージングテーブル: jgb2023.20251031.bond_issuances__stg_c2a2ff48
+2025-10-31 10:31:03,301 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:03,301 [DEBUG]   ✓ ステージングテーブル作成完了（有効期限: 1日）
+2025-10-31 10:31:03,302 [DEBUG]   ✓ 行の変換・バリデーション完了: 3件
+2025-10-31 10:31:03,974 [DEBUG] https://bigquery.googleapis.com:443 "POST /upload/bigquery/v2/projects/jgb2023/jobs?uploadType=multipart HTTP/1.1" 200 2664
+2025-10-31 10:31:04,012 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/72f1a84c-d6b4-4805-af58-9a5c33a2a4b4?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:04,012 [DEBUG] Retrying due to , sleeping 0.9s ...
+2025-10-31 10:31:05,013 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/72f1a84c-d6b4-4805-af58-9a5c33a2a4b4?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:05,014 [DEBUG] Retrying due to , sleeping 1.4s ...
+2025-10-31 10:31:06,472 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/jobs/72f1a84c-d6b4-4805-af58-9a5c33a2a4b4?location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:06,473 [DEBUG]   ✓ ステージングテーブルへのロード完了
+2025-10-31 10:31:06,787 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:06,788 [ERROR]   ✗ MERGE失敗（staging経由）
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 492, in merge_to_layer2
+    ins_count = list(client.query(count_sql, location=LOCATION).result())[0].ins
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Name dedupe_key not found inside T at [5:16]
+
+Location: asia-northeast1
+Job ID: d56716e4-a79d-4e4f-89b0-f468ec18719f
+
+2025-10-31 10:31:06,872 [DEBUG] https://bigquery.googleapis.com:443 "DELETE /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances__stg_c2a2ff48?prettyPrint=false HTTP/1.1" 204 0
+2025-10-31 10:31:06,873 [DEBUG]   ✓ ステージングテーブル削除完了
+2025-10-31 10:31:06,873 [ERROR]   ✗ MERGE失敗
+2025-10-31 10:31:06,907 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:06,908 [INFO] 
+2025-10-31 10:31:06,908 [INFO] ================================================================================
+2025-10-31 10:31:06,909 [INFO] 処理結果
+2025-10-31 10:31:06,909 [INFO] ================================================================================
+2025-10-31 10:31:06,909 [INFO] 総ファイル数: 10件
+2025-10-31 10:31:06,909 [INFO] 成功: 0件
+2025-10-31 10:31:06,909 [INFO] 重複: 0件
+2025-10-31 10:31:06,910 [INFO] 失敗: 10件
+2025-10-31 10:31:06,910 [INFO] スキップ: 0件
+2025-10-31 10:31:06,910 [INFO] 成功率: 0.0%
+2025-10-31 10:31:06,910 [INFO] 総レコード数: 0件
+2025-10-31 10:31:06,910 [INFO] 総発行額: 0.00兆円
+2025-10-31 10:31:06,911 [INFO] ================================================================================
+2025-10-31 10:31:07,684 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:07,781 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a0884830-f43e-4dfd-bc59-0571147665d3?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:07,889 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a0884830-f43e-4dfd-bc59-0571147665d3?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:07,890 [INFO] 
+Layer2 総レコード数: 27件
+2025-10-31 10:31:07,890 [INFO] 
+サンプルレコード（金額上位5件）:
+2025-10-31 10:31:08,167 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 10:31:08,168 [ERROR] 検証エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v7_fixed2.py", line 650, in <module>
+    results = client.query(sample_query, location=LOCATION).result()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1595, in result
+    do_get_result()
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\future\polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Unrecognized name: dedupe_key at [2:73]
+
+Location: asia-northeast1
+Job ID: 1f2ce90e-ac8f-4615-8fe8-eb476ab62bf8
+
+2025-10-31 10:31:08,170 [INFO] 
+2025-10-31 10:31:08,170 [INFO] ================================================================================
+2025-10-31 10:31:08,170 [INFO] 処理完了
+2025-10-31 10:31:08,171 [INFO] ================================================================================
+2025-10-31 10:31:08,171 [INFO] 詳細ログ: batch_processing_v7_fixed2.log

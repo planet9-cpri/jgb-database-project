@@ -1,0 +1,1408 @@
+2025-10-31 08:28:05,291 [INFO] ================================================================================
+2025-10-31 08:28:05,291 [INFO] 直接パース方式バッチ処理 v4 (完全版)
+2025-10-31 08:28:05,291 [INFO] ================================================================================
+2025-10-31 08:28:05,292 [INFO] プロジェクトID: jgb2023
+2025-10-31 08:28:05,292 [INFO] データセットID: 20251031
+2025-10-31 08:28:05,292 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 08:28:05,292 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 08:28:05,292 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 08:28:05,293 [INFO] ================================================================================
+2025-10-31 08:28:05,313 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 08:28:06,464 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 08:28:06,481 [INFO] ✓ .txtファイル: 179件
+2025-10-31 08:28:06,482 [INFO] 制限モード: 10件を処理します
+2025-10-31 08:28:06,674 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 08:28:06,868 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 08:28:06,870 [INFO] 
+2025-10-31 08:28:06,870 [INFO] ================================================================================
+2025-10-31 08:28:06,871 [INFO] 処理開始
+2025-10-31 08:28:06,871 [INFO] ================================================================================
+2025-10-31 08:28:06,871 [INFO] 
+2025-10-31 08:28:06,871 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 08:28:06,893 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 08:28:06,896 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:06,896 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:06,897 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:06,983 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 08:28:07,001 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 08:28:07,001 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,001 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:07,002 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,003 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 08:28:07,020 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 08:28:07,020 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,020 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:07,021 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,022 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 08:28:07,037 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 08:28:07,037 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,038 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,038 [INFO]   ✓ 合計金額: 88.38億円
+2025-10-31 08:28:07,091 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: ed221d9b-b422-4608-8d48-748534ad1194
+
+2025-10-31 08:28:07,137 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,137 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,139 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 08:28:07,155 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 08:28:07,156 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,157 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:07,157 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,158 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 08:28:07,173 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 08:28:07,174 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,174 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,174 [INFO]   ✓ 合計金額: 9.51億円
+2025-10-31 08:28:07,215 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 90f733d3-37f4-497c-93e1-8f7f88da5167
+
+2025-10-31 08:28:07,216 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,217 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,218 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 08:28:07,239 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 08:28:07,240 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,241 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,241 [INFO]   ✓ 合計金額: 4995.00億円
+2025-10-31 08:28:07,277 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: fff53045-58a4-406c-af2f-27d1edc1ae00
+
+2025-10-31 08:28:07,279 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,280 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,281 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 08:28:07,298 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 08:28:07,298 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,298 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,299 [INFO]   ✓ 合計金額: 611.14億円
+2025-10-31 08:28:07,341 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 7f20ecd3-51ec-43f2-a271-5e13c60edbf2
+
+2025-10-31 08:28:07,343 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,343 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,345 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 08:28:07,362 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 08:28:07,363 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,363 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,363 [INFO]   ✓ 合計金額: 2765.21億円
+2025-10-31 08:28:07,402 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 901f9666-3391-4e58-8207-99163df4a7e5
+
+2025-10-31 08:28:07,403 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,403 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,405 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 08:28:07,422 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 08:28:07,423 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:07,423 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:07,423 [INFO]   ✓ 合計金額: 165.15億円
+2025-10-31 08:28:07,459 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: f96150db-c57a-44d4-a003-49fe60edba2d
+
+2025-10-31 08:28:07,460 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:07,461 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:07,462 [INFO] 
+2025-10-31 08:28:07,462 [INFO] ================================================================================
+2025-10-31 08:28:07,462 [INFO] 処理結果
+2025-10-31 08:28:07,462 [INFO] ================================================================================
+2025-10-31 08:28:07,464 [INFO] 総ファイル数: 10件
+2025-10-31 08:28:07,464 [INFO] 成功: 0件
+2025-10-31 08:28:07,464 [INFO] 失敗: 10件
+2025-10-31 08:28:07,464 [INFO] スキップ: 0件
+2025-10-31 08:28:07,464 [INFO] 成功率: 0.0%
+2025-10-31 08:28:07,464 [INFO] 総レコード数: 0件
+2025-10-31 08:28:07,464 [INFO] 総発行額: 0.00兆円
+2025-10-31 08:28:07,465 [INFO] ================================================================================
+2025-10-31 08:28:08,375 [INFO] 
+Layer2 総レコード数: 0件
+2025-10-31 08:28:08,376 [INFO] 
+2025-10-31 08:28:08,376 [INFO] ================================================================================
+2025-10-31 08:28:08,376 [INFO] 処理完了
+2025-10-31 08:28:08,377 [INFO] ================================================================================
+2025-10-31 08:28:08,377 [INFO] 詳細ログ: batch_processing_v4.log
+2025-10-31 08:28:40,034 [INFO] ================================================================================
+2025-10-31 08:28:40,034 [INFO] 直接パース方式バッチ処理 v4 (完全版)
+2025-10-31 08:28:40,035 [INFO] ================================================================================
+2025-10-31 08:28:40,035 [INFO] プロジェクトID: jgb2023
+2025-10-31 08:28:40,035 [INFO] データセットID: 20251031
+2025-10-31 08:28:40,035 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 08:28:40,035 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 08:28:40,036 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 08:28:40,036 [INFO] ================================================================================
+2025-10-31 08:28:40,038 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-31 08:28:40,048 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 08:28:40,048 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-31 08:28:40,049 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-31 08:28:40,080 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-31 08:28:40,085 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-31 08:28:40,546 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-31 08:28:40,548 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-31 08:28:40,942 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 08:28:41,062 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:41,062 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 08:28:41,075 [INFO] ✓ .txtファイル: 179件
+2025-10-31 08:28:41,075 [INFO] 制限モード: 10件を処理します
+2025-10-31 08:28:41,205 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 08:28:41,357 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:41,359 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 08:28:41,500 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 08:28:41,606 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:41,607 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 08:28:41,610 [INFO] 
+2025-10-31 08:28:41,611 [INFO] ================================================================================
+2025-10-31 08:28:41,611 [INFO] 処理開始
+2025-10-31 08:28:41,611 [INFO] ================================================================================
+2025-10-31 08:28:41,612 [INFO] 
+2025-10-31 08:28:41,612 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 08:28:41,620 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 08:28:41,621 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,621 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,621 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:41,622 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,626 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 08:28:41,634 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 08:28:41,634 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,634 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,635 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:41,635 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,636 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 08:28:41,641 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 08:28:41,642 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,643 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,643 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:41,644 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,645 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 08:28:41,651 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 08:28:41,651 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,652 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,652 [DEBUG]   抽出成功: 88.38億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,652 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,652 [INFO]   ✓ 合計金額: 88.38億円
+2025-10-31 08:28:41,705 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,706 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: be58913a-2c2c-4b3c-883a-d15b230b7d16
+
+2025-10-31 08:28:41,708 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,709 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,710 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 08:28:41,718 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 08:28:41,719 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,719 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,719 [WARNING]   ⚠ データ抽出失敗
+2025-10-31 08:28:41,720 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,721 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 08:28:41,727 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 08:28:41,728 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,729 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,729 [DEBUG]   抽出成功: 9.51億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,729 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,729 [INFO]   ✓ 合計金額: 9.51億円
+2025-10-31 08:28:41,759 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,760 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: d83bcc6b-5ab8-449f-8fe0-f6bb174cf721
+
+2025-10-31 08:28:41,762 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,763 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,765 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 08:28:41,781 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 08:28:41,782 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,782 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,782 [DEBUG]   抽出成功: 4995.00億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,783 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,783 [INFO]   ✓ 合計金額: 4995.00億円
+2025-10-31 08:28:41,817 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,818 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 763953d5-5063-446d-b57e-05c5188641ea
+
+2025-10-31 08:28:41,819 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,820 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,821 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 08:28:41,829 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 08:28:41,830 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,830 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,830 [DEBUG]   抽出成功: 611.14億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,830 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,831 [INFO]   ✓ 合計金額: 611.14億円
+2025-10-31 08:28:41,869 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,870 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 5a85624e-6dd2-45cf-80e9-1ac80d8081ca
+
+2025-10-31 08:28:41,872 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,872 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,874 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 08:28:41,883 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 08:28:41,884 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,884 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,884 [DEBUG]   抽出成功: 2765.21億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,885 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,885 [INFO]   ✓ 合計金額: 2765.21億円
+2025-10-31 08:28:41,924 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,924 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 71e6f583-a105-4db8-88d2-9275b37bf3ae
+
+2025-10-31 08:28:41,926 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,927 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,929 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 08:28:41,937 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 08:28:41,938 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 08:28:41,938 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 08:28:41,938 [DEBUG]   抽出成功: 165.15億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 08:28:41,938 [INFO]   ✓ データ抽出: 1件
+2025-10-31 08:28:41,938 [INFO]   ✓ 合計金額: 165.15億円
+2025-10-31 08:28:41,978 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 08:28:41,979 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 385, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: e3d463c1-e0b3-4c96-850e-d3efa0dac423
+
+2025-10-31 08:28:41,980 [ERROR]   ✗ MERGE失敗
+2025-10-31 08:28:41,980 [ERROR]   ⚠ parse_log記録エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v4.py", line 332, in log_parse_result
+    client.insert_rows_json(table_id_parse_log, [log_entry])
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 479, in api_request
+    data = json.dumps(data)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+2025-10-31 08:28:41,982 [INFO] 
+2025-10-31 08:28:41,982 [INFO] ================================================================================
+2025-10-31 08:28:41,982 [INFO] 処理結果
+2025-10-31 08:28:41,982 [INFO] ================================================================================
+2025-10-31 08:28:41,983 [INFO] 総ファイル数: 10件
+2025-10-31 08:28:41,984 [INFO] 成功: 0件
+2025-10-31 08:28:41,984 [INFO] 失敗: 10件
+2025-10-31 08:28:41,984 [INFO] スキップ: 0件
+2025-10-31 08:28:41,984 [INFO] 成功率: 0.0%
+2025-10-31 08:28:41,984 [INFO] 総レコード数: 0件
+2025-10-31 08:28:41,985 [INFO] 総発行額: 0.00兆円
+2025-10-31 08:28:41,985 [INFO] ================================================================================
+2025-10-31 08:28:42,325 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:42,479 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/5f1c7f75-9840-41a5-a039-b7cced3bee3f?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:42,595 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/5f1c7f75-9840-41a5-a039-b7cced3bee3f?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 08:28:42,597 [INFO] 
+Layer2 総レコード数: 0件
+2025-10-31 08:28:42,597 [INFO] 
+2025-10-31 08:28:42,598 [INFO] ================================================================================
+2025-10-31 08:28:42,598 [INFO] 処理完了
+2025-10-31 08:28:42,599 [INFO] ================================================================================
+2025-10-31 08:28:42,599 [INFO] 詳細ログ: batch_processing_v4.log

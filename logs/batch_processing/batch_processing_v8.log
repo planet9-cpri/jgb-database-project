@@ -1,0 +1,209 @@
+2025-10-31 09:52:14,650 [INFO] ================================================================================
+2025-10-31 09:52:14,650 [INFO] 直接パース方式バッチ処理 v8 (最終版)
+2025-10-31 09:52:14,650 [INFO] ================================================================================
+2025-10-31 09:52:14,652 [INFO] プロジェクトID: jgb2023
+2025-10-31 09:52:14,652 [INFO] データセットID: 20251031
+2025-10-31 09:52:14,652 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 09:52:14,652 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 09:52:14,652 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 09:52:14,653 [INFO] ================================================================================
+2025-10-31 09:52:14,654 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-31 09:52:14,661 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 09:52:14,661 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-31 09:52:14,662 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-31 09:52:14,692 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-31 09:52:14,695 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-31 09:52:15,141 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-31 09:52:15,142 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-31 09:52:15,528 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:52:15,755 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:15,756 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 09:52:15,770 [INFO] ✓ .txtファイル: 179件
+2025-10-31 09:52:15,771 [INFO] 制限モード: 10件を処理します
+2025-10-31 09:52:15,923 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:52:16,074 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:16,075 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 09:52:16,275 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:52:16,430 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:16,431 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 09:52:16,434 [INFO] 
+2025-10-31 09:52:16,434 [INFO] ================================================================================
+2025-10-31 09:52:16,434 [INFO] 処理開始
+2025-10-31 09:52:16,435 [INFO] ================================================================================
+2025-10-31 09:52:16,435 [INFO] 
+2025-10-31 09:52:16,435 [INFO] 既存レコードを取得中...
+2025-10-31 09:52:17,124 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:17,259 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/5f984390-89ad-4979-9027-87887c55eef0?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:17,416 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/5f984390-89ad-4979-9027-87887c55eef0?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:17,417 [DEBUG]   既存レコード数: 0件
+2025-10-31 09:52:17,417 [INFO] ✓ 既存レコード: 0件
+2025-10-31 09:52:17,417 [INFO] 
+2025-10-31 09:52:17,418 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 09:52:17,425 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 09:52:17,425 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:17,426 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:17,427 [DEBUG]   抽出成功: 23772.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:17,427 [DEBUG]   抽出成功: 5221.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:17,427 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:17,428 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:52:17,428 [INFO]   ✓ 合計金額: 28993.00億円
+2025-10-31 09:52:17,911 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:17,913 [DEBUG]   ✓ INSERT完了: 2件
+2025-10-31 09:52:17,913 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,115 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,116 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 09:52:18,123 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 09:52:18,123 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,124 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,124 [DEBUG]   抽出成功: 21962.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,124 [DEBUG]   抽出成功: 3.45億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,124 [DEBUG]   抽出成功: 5031.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,124 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,125 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:52:18,125 [INFO]   ✓ 合計金額: 26996.45億円
+2025-10-31 09:52:18,239 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,239 [DEBUG]   ✓ INSERT完了: 3件
+2025-10-31 09:52:18,240 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,279 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,280 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 09:52:18,289 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 09:52:18,290 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,290 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,291 [DEBUG]   抽出成功: 7282.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,291 [DEBUG]   抽出成功: 1709.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,291 [DEBUG]   抽出成功: 873.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,291 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,291 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:52:18,291 [INFO]   ✓ 合計金額: 9864.00億円
+2025-10-31 09:52:18,362 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,363 [DEBUG]   ✓ INSERT完了: 3件
+2025-10-31 09:52:18,363 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,465 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,466 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 09:52:18,471 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 09:52:18,471 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,471 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,473 [DEBUG]   抽出成功: 88.38億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:18,473 [DEBUG]   抽出成功: 88.38億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,473 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,473 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:52:18,473 [INFO]   ✓ 合計金額: 176.75億円
+2025-10-31 09:52:18,513 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,514 [DEBUG]   ✓ INSERT完了: 2件
+2025-10-31 09:52:18,515 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,531 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,532 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 09:52:18,537 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 09:52:18,538 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,538 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,539 [DEBUG]   抽出成功: 20319.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,539 [DEBUG]   抽出成功: 10.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,539 [DEBUG]   抽出成功: 4662.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,539 [DEBUG]   抽出成功: 1989.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,539 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,539 [INFO]   ✓ データ抽出: 4件
+2025-10-31 09:52:18,540 [INFO]   ✓ 合計金額: 26980.00億円
+2025-10-31 09:52:18,585 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,586 [DEBUG]   ✓ INSERT完了: 4件
+2025-10-31 09:52:18,586 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,621 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,622 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 09:52:18,632 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 09:52:18,632 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,633 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,633 [DEBUG]   抽出成功: 9.51億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:18,633 [DEBUG]   抽出成功: 9.51億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,634 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,634 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:52:18,634 [INFO]   ✓ 合計金額: 19.02億円
+2025-10-31 09:52:18,674 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,675 [DEBUG]   ✓ INSERT完了: 2件
+2025-10-31 09:52:18,676 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,761 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,762 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 09:52:18,778 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 09:52:18,779 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,779 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,780 [DEBUG]   抽出成功: 4995.00億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:18,781 [DEBUG]   抽出成功: 4995.00億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,781 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,781 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:52:18,781 [INFO]   ✓ 合計金額: 9990.00億円
+2025-10-31 09:52:18,827 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,828 [DEBUG]   ✓ INSERT完了: 2件
+2025-10-31 09:52:18,828 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,844 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,845 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 09:52:18,853 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 09:52:18,854 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,854 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,854 [DEBUG]   抽出成功: 611.14億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 09:52:18,854 [DEBUG]   抽出成功: 611.14億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:18,855 [DEBUG]   抽出成功: 611.14億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,855 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,855 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:52:18,856 [INFO]   ✓ 合計金額: 1833.42億円
+2025-10-31 09:52:18,905 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,906 [DEBUG]   ✓ INSERT完了: 3件
+2025-10-31 09:52:18,906 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:18,919 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,920 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 09:52:18,927 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 09:52:18,928 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:18,928 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:18,928 [DEBUG]   抽出成功: 2765.21億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 09:52:18,929 [DEBUG]   抽出成功: 2765.21億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:18,929 [DEBUG]   抽出成功: 2765.21億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:18,929 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:18,930 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:52:18,930 [INFO]   ✓ 合計金額: 8295.64億円
+2025-10-31 09:52:18,973 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:18,974 [DEBUG]   ✓ INSERT完了: 3件
+2025-10-31 09:52:18,974 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:19,025 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,026 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 09:52:19,034 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 09:52:19,034 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:52:19,035 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:52:19,035 [DEBUG]   抽出成功: 165.15億円 [パターン: 項番付き発行額, 優先度: 110]
+2025-10-31 09:52:19,035 [DEBUG]   抽出成功: 165.15億円 [パターン: 発行額, 優先度: 100]
+2025-10-31 09:52:19,035 [DEBUG]   抽出成功: 165.15億円 [パターン: 額面金額（明示）, 優先度: 70]
+2025-10-31 09:52:19,036 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:52:19,036 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:52:19,036 [INFO]   ✓ 合計金額: 495.46億円
+2025-10-31 09:52:19,080 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,081 [DEBUG]   ✓ INSERT完了: 3件
+2025-10-31 09:52:19,081 [INFO]   ✓ 成功: Layer2へINSERT完了
+2025-10-31 09:52:19,118 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,119 [INFO] 
+2025-10-31 09:52:19,119 [INFO] ================================================================================
+2025-10-31 09:52:19,119 [INFO] 処理結果
+2025-10-31 09:52:19,120 [INFO] ================================================================================
+2025-10-31 09:52:19,120 [INFO] 総ファイル数: 10件
+2025-10-31 09:52:19,120 [INFO] 成功: 10件
+2025-10-31 09:52:19,120 [INFO] 失敗: 0件
+2025-10-31 09:52:19,121 [INFO] スキップ: 0件
+2025-10-31 09:52:19,121 [INFO] 成功率: 100.0%
+2025-10-31 09:52:19,121 [INFO] 総レコード数: 27件
+2025-10-31 09:52:19,121 [INFO] 総発行額: 11.36兆円
+2025-10-31 09:52:19,122 [INFO] ================================================================================
+2025-10-31 09:52:19,745 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,870 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/d326f0b8-afd8-4a2a-8f02-700d93fef0a9?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,985 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/d326f0b8-afd8-4a2a-8f02-700d93fef0a9?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:19,986 [INFO] 
+Layer2 総レコード数: 27件
+2025-10-31 09:52:19,986 [INFO] 
+サンプルレコード（金額上位5件）:
+2025-10-31 09:52:20,521 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:20,627 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/7bf3dd6e-fb33-40ec-91fd-20c95de9fdf5?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:20,738 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/7bf3dd6e-fb33-40ec-91fd-20c95de9fdf5?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:52:20,739 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 2,377,200,000,000円 (23772.00億円) [未分類]
+2025-10-31 09:52:20,740 [INFO]   20230405_令和5年5月9日付（財務省第百二十三号）: 2,196,200,000,000円 (21962.00億円) [未分類]
+2025-10-31 09:52:20,740 [INFO]   20230412_令和5年5月9日付（財務省第百二十二号）: 2,031,900,000,000円 (20319.00億円) [未分類]
+2025-10-31 09:52:20,741 [INFO]   20230407_令和5年5月9日付（財務省第百二十五号）: 728,200,000,000円 (7282.00億円) [未分類]
+2025-10-31 09:52:20,741 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 522,100,000,000円 (5221.00億円) [未分類]
+2025-10-31 09:52:20,742 [INFO] 
+2025-10-31 09:52:20,742 [INFO] ================================================================================
+2025-10-31 09:52:20,743 [INFO] 処理完了
+2025-10-31 09:52:20,743 [INFO] ================================================================================
+2025-10-31 09:52:20,743 [INFO] 詳細ログ: batch_processing_v8.log

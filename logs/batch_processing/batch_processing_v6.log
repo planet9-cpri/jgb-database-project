@@ -1,0 +1,460 @@
+2025-10-31 09:24:27,790 [INFO] ================================================================================
+2025-10-31 09:24:27,790 [INFO] 直接パース方式バッチ処理 v6 (最終完成版)
+2025-10-31 09:24:27,791 [INFO] ================================================================================
+2025-10-31 09:24:27,791 [INFO] プロジェクトID: jgb2023
+2025-10-31 09:24:27,791 [INFO] データセットID: 20251031
+2025-10-31 09:24:27,791 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-31 09:24:27,792 [INFO] 処理制限: 10件 (0=全件)
+2025-10-31 09:24:27,792 [INFO] 最小金額: 100,000,000円 (1億円)
+2025-10-31 09:24:27,792 [INFO] ================================================================================
+2025-10-31 09:24:27,793 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-31 09:24:27,800 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-31 09:24:27,801 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-31 09:24:27,801 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-31 09:24:27,828 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-31 09:24:27,834 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-31 09:24:28,288 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-31 09:24:28,289 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-31 09:24:28,697 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:24:28,868 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:28,870 [INFO] ✓ データセット準備完了: jgb2023.20251031
+2025-10-31 09:24:28,881 [INFO] ✓ .txtファイル: 179件
+2025-10-31 09:24:28,881 [INFO] 制限モード: 10件を処理します
+2025-10-31 09:24:29,046 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:24:29,188 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/bond_issuances?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:29,189 [INFO] ✓ bond_issuancesテーブル準備完了: jgb2023.20251031.bond_issuances
+2025-10-31 09:24:29,364 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-31 09:24:29,518 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:29,519 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251031.parse_log
+2025-10-31 09:24:29,522 [INFO] 
+2025-10-31 09:24:29,523 [INFO] ================================================================================
+2025-10-31 09:24:29,523 [INFO] 処理開始
+2025-10-31 09:24:29,523 [INFO] ================================================================================
+2025-10-31 09:24:29,523 [INFO] 
+2025-10-31 09:24:29,523 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-31 09:24:29,532 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-31 09:24:29,532 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:29,533 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:29,533 [DEBUG]   抽出成功: 23772.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 638]
+2025-10-31 09:24:29,533 [DEBUG]   抽出成功: 5221.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 688]
+2025-10-31 09:24:29,534 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,534 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,534 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,534 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,535 [ERROR]   ✗ 処理エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 512, in <module>
+    items = simple_parse(normalized_text, announcement_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 365, in simple_parse
+    items = [item for priority, pattern_name, item in sorted(selected.values(), reverse=True)]
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2025-10-31 09:24:29,782 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:29,783 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-31 09:24:29,794 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-31 09:24:29,794 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:29,794 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:29,795 [DEBUG]   抽出成功: 21962.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 800]
+2025-10-31 09:24:29,795 [DEBUG]   抽出成功: 3.45億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 837]
+2025-10-31 09:24:29,795 [DEBUG]   抽出成功: 5031.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 881]
+2025-10-31 09:24:29,796 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,796 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,796 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,797 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,797 [ERROR]   ✗ 処理エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 512, in <module>
+    items = simple_parse(normalized_text, announcement_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 365, in simple_parse
+    items = [item for priority, pattern_name, item in sorted(selected.values(), reverse=True)]
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2025-10-31 09:24:29,889 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:29,890 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-31 09:24:29,896 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-31 09:24:29,897 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:29,897 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:29,898 [DEBUG]   抽出成功: 7282.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 758]
+2025-10-31 09:24:29,898 [DEBUG]   抽出成功: 1709.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 806]
+2025-10-31 09:24:29,898 [DEBUG]   抽出成功: 873.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 855]
+2025-10-31 09:24:29,898 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,900 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,900 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,900 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:29,900 [ERROR]   ✗ 処理エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 512, in <module>
+    items = simple_parse(normalized_text, announcement_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 365, in simple_parse
+    items = [item for priority, pattern_name, item in sorted(selected.values(), reverse=True)]
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2025-10-31 09:24:30,005 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,006 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-31 09:24:30,014 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-31 09:24:30,014 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,014 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,015 [DEBUG]   抽出成功: 88.38億円 [パターン: 発行額, 優先度: 100, 位置: 364]
+2025-10-31 09:24:30,015 [DEBUG]   抽出成功: 88.38億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 371]
+2025-10-31 09:24:30,015 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,015 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,016 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,016 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:24:30,016 [INFO]   ✓ 合計金額: 176.75億円
+2025-10-31 09:24:30,064 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,066 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 11159b39-b6df-42ee-b1bf-08936f273924
+
+2025-10-31 09:24:30,070 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:30,154 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,155 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-31 09:24:30,162 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-31 09:24:30,163 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,163 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,164 [DEBUG]   抽出成功: 20319.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 920]
+2025-10-31 09:24:30,164 [DEBUG]   抽出成功: 10.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 957]
+2025-10-31 09:24:30,164 [DEBUG]   抽出成功: 4662.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 1003]
+2025-10-31 09:24:30,164 [DEBUG]   抽出成功: 1989.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 1052]
+2025-10-31 09:24:30,165 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,165 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,165 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,165 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,165 [ERROR]   ✗ 処理エラー
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 512, in <module>
+    items = simple_parse(normalized_text, announcement_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 365, in simple_parse
+    items = [item for priority, pattern_name, item in sorted(selected.values(), reverse=True)]
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2025-10-31 09:24:30,250 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,250 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-31 09:24:30,258 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-31 09:24:30,258 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,258 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,259 [DEBUG]   抽出成功: 9.51億円 [パターン: 発行額, 優先度: 100, 位置: 364]
+2025-10-31 09:24:30,259 [DEBUG]   抽出成功: 9.51億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 371]
+2025-10-31 09:24:30,259 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,259 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,259 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,259 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:24:30,260 [INFO]   ✓ 合計金額: 19.02億円
+2025-10-31 09:24:30,293 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,294 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 5f75257b-dd63-419e-b89e-56459791d2e2
+
+2025-10-31 09:24:30,296 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:30,403 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,404 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-31 09:24:30,420 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-31 09:24:30,421 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,421 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,422 [DEBUG]   抽出成功: 4995.00億円 [パターン: 発行額, 優先度: 100, 位置: 640]
+2025-10-31 09:24:30,422 [DEBUG]   抽出成功: 4995.00億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 647]
+2025-10-31 09:24:30,423 [DEBUG]   除外: 金額が小さすぎる (50,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,423 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,423 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,423 [INFO]   ✓ データ抽出: 2件
+2025-10-31 09:24:30,423 [INFO]   ✓ 合計金額: 9990.00億円
+2025-10-31 09:24:30,466 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,467 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 264eea77-4ce7-4d72-bcc9-18347ec9bc42
+
+2025-10-31 09:24:30,469 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:30,563 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,564 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-31 09:24:30,571 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-31 09:24:30,572 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,572 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,572 [DEBUG]   抽出成功: 611.14億円 [パターン: 項番付き発行額, 優先度: 110, 位置: 339]
+2025-10-31 09:24:30,572 [DEBUG]   抽出成功: 611.14億円 [パターン: 発行額, 優先度: 100, 位置: 344]
+2025-10-31 09:24:30,573 [DEBUG]   抽出成功: 611.14億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 351]
+2025-10-31 09:24:30,573 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,573 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,573 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,574 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:24:30,574 [INFO]   ✓ 合計金額: 1833.42億円
+2025-10-31 09:24:30,614 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,615 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 3607dc0a-241f-450e-acf6-2da668fbb3e3
+
+2025-10-31 09:24:30,617 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:30,633 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,634 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-31 09:24:30,641 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-31 09:24:30,641 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,641 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,643 [DEBUG]   抽出成功: 2765.21億円 [パターン: 項番付き発行額, 優先度: 110, 位置: 340]
+2025-10-31 09:24:30,643 [DEBUG]   抽出成功: 2765.21億円 [パターン: 発行額, 優先度: 100, 位置: 345]
+2025-10-31 09:24:30,643 [DEBUG]   抽出成功: 2765.21億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 352]
+2025-10-31 09:24:30,643 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,644 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,644 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,645 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:24:30,645 [INFO]   ✓ 合計金額: 8295.64億円
+2025-10-31 09:24:30,681 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,682 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: 46150aed-91d3-4e72-abdc-9dfcdd62bfa9
+
+2025-10-31 09:24:30,684 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:30,871 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:30,872 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-31 09:24:30,879 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-31 09:24:30,880 [DEBUG]   ✓ NFKC正規化完了
+2025-10-31 09:24:30,880 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-31 09:24:30,880 [DEBUG]   抽出成功: 165.15億円 [パターン: 項番付き発行額, 優先度: 110, 位置: 338]
+2025-10-31 09:24:30,881 [DEBUG]   抽出成功: 165.15億円 [パターン: 発行額, 優先度: 100, 位置: 343]
+2025-10-31 09:24:30,881 [DEBUG]   抽出成功: 165.15億円 [パターン: 額面金額（明示）, 優先度: 70, 位置: 350]
+2025-10-31 09:24:30,881 [DEBUG]   除外: 金額が小さすぎる (10,000円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,881 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,881 [DEBUG]   除外: 金額が小さすぎる (100円) [パターン: 額面金額（明示）]
+2025-10-31 09:24:30,882 [INFO]   ✓ データ抽出: 3件
+2025-10-31 09:24:30,882 [INFO]   ✓ 合計金額: 495.46億円
+2025-10-31 09:24:30,925 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 400 None
+2025-10-31 09:24:30,926 [ERROR]   ✗ MERGE失敗
+Traceback (most recent call last):
+  File "C:\Users\sonke\projects\jgb_database_project\scripts\01_data_ingestion\batch_direct_processing_v6.py", line 465, in merge_to_layer2
+    query_job = client.query(merge_sql, job_config=job_config, location=LOCATION)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 3387, in query
+    return _job_helpers.query_jobs_insert(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 158, in query_jobs_insert
+    future = do_query()
+             ^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\_job_helpers.py", line 135, in do_query
+    query_job._begin(retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\query.py", line 1379, in _begin
+    super(QueryJob, self)._begin(client=client, retry=retry, timeout=timeout)
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\job\base.py", line 723, in _begin
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\bigquery\client.py", line 818, in _call_api
+    return call()
+           ^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\sonke\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\cloud\_http\__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/bigquery/v2/projects/jgb2023/jobs?prettyPrint=false: Invalid value for type: STRUCT<announcement_id STRING, bond_name STRING, issue_amount INT64, legal_basis STRING, legal_basis_normalized STRING, legal_basis_source STRING, bond_category STRING, mof_category STRING, data_quality_score INT64, is_summary_record BOOL, is_detail_record BOOL> is not a valid value
+
+Location: asia-northeast1
+Job ID: ed83ab27-8d4a-4ccf-b585-471f29baa2dd
+
+2025-10-31 09:24:30,928 [ERROR]   ✗ MERGE失敗
+2025-10-31 09:24:31,010 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251031/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:31,018 [INFO] 
+2025-10-31 09:24:31,024 [INFO] ================================================================================
+2025-10-31 09:24:31,025 [INFO] 処理結果
+2025-10-31 09:24:31,025 [INFO] ================================================================================
+2025-10-31 09:24:31,025 [INFO] 総ファイル数: 10件
+2025-10-31 09:24:31,025 [INFO] 成功: 0件
+2025-10-31 09:24:31,025 [INFO] 失敗: 10件
+2025-10-31 09:24:31,026 [INFO] スキップ: 0件
+2025-10-31 09:24:31,026 [INFO] 成功率: 0.0%
+2025-10-31 09:24:31,026 [INFO] 総レコード数: 0件
+2025-10-31 09:24:31,026 [INFO] 総発行額: 0.00兆円
+2025-10-31 09:24:31,026 [INFO] ================================================================================
+2025-10-31 09:24:31,382 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:31,548 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/4c9b33fc-064e-4cf4-9c38-9b1820265310?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:31,693 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/4c9b33fc-064e-4cf4-9c38-9b1820265310?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-31 09:24:31,695 [INFO] 
+Layer2 総レコード数: 0件
+2025-10-31 09:24:31,695 [INFO] 
+2025-10-31 09:24:31,696 [INFO] ================================================================================
+2025-10-31 09:24:31,696 [INFO] 処理完了
+2025-10-31 09:24:31,696 [INFO] ================================================================================
+2025-10-31 09:24:31,697 [INFO] 詳細ログ: batch_processing_v6.log

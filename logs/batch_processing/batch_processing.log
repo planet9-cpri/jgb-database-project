@@ -1,0 +1,429 @@
+2025-10-30 21:01:22,010 [INFO] ================================================================================
+2025-10-30 21:01:22,010 [INFO] 直接パース方式バッチ処理 v2 (修正版)
+2025-10-30 21:01:22,010 [INFO] ================================================================================
+2025-10-30 21:01:22,011 [INFO] プロジェクトID: jgb2023
+2025-10-30 21:01:22,011 [INFO] データセットID: 20251030
+2025-10-30 21:01:22,011 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-30 21:01:22,011 [INFO] 処理制限: 10件 (0=全件)
+2025-10-30 21:01:22,011 [INFO] ================================================================================
+2025-10-30 21:01:22,013 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-30 21:01:22,033 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-30 21:01:22,093 [INFO] ✓ .txtファイル: 179件
+2025-10-30 21:01:22,094 [INFO] 制限モード: 10件を処理します
+2025-10-30 21:01:22,094 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-30 21:01:22,095 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-30 21:01:22,122 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-30 21:01:22,127 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-30 21:01:22,604 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-30 21:01:22,608 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-30 21:01:23,142 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:23,143 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251030.parse_log
+2025-10-30 21:01:23,143 [INFO] 
+2025-10-30 21:01:23,144 [INFO] ================================================================================
+2025-10-30 21:01:23,144 [INFO] 処理開始
+2025-10-30 21:01:23,144 [INFO] ================================================================================
+2025-10-30 21:01:23,144 [INFO] 
+2025-10-30 21:01:23,144 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-30 21:01:23,832 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:23,986 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/6f0df4c8-4fa7-4b55-b558-102bac305911?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:24,124 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/6f0df4c8-4fa7-4b55-b558-102bac305911?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:24,156 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-30 21:01:24,158 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:24,159 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:24,160 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:24,160 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,160 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,160 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,161 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,161 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,161 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:24,161 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:24,603 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:24,604 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-30 21:01:25,149 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:25,277 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/bfbd6fc3-1625-47b4-a8f2-cf6d92ca78b7?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:25,413 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/bfbd6fc3-1625-47b4-a8f2-cf6d92ca78b7?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:25,422 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-30 21:01:25,422 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:25,423 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:25,423 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:25,423 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,423 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,424 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,424 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,424 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,424 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:25,424 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:25,526 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:25,527 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-30 21:01:26,095 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:26,206 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/81bba64f-a223-4eb0-a2ad-b7f9d486f768?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:26,317 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/81bba64f-a223-4eb0-a2ad-b7f9d486f768?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:26,334 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-30 21:01:26,334 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:26,335 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:26,335 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:26,335 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:26,335 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:26,336 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:26,336 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:26,336 [DEBUG]   除外: 金額が小さすぎる (101円)
+2025-10-30 21:01:26,336 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:26,336 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:26,390 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:26,391 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-30 21:01:26,904 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:27,006 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1ba289f7-77ec-424f-b07e-5fbb6d621e8d?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:27,126 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/1ba289f7-77ec-424f-b07e-5fbb6d621e8d?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:27,133 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-30 21:01:27,134 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:27,134 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:27,134 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:27,134 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:27,135 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:27,135 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:27,135 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:27,135 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:27,247 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:27,248 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-30 21:01:27,760 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:27,876 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/3045ffac-e52a-47ed-95fd-a68b9fdcddd7?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,000 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/3045ffac-e52a-47ed-95fd-a68b9fdcddd7?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,017 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-30 21:01:28,018 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:28,018 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:28,019 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:28,019 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,019 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,019 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,020 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,020 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,020 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,020 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:28,164 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,164 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-30 21:01:28,701 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,838 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a037c20b-b704-4513-ae53-d70d08e7b4fa?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,959 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a037c20b-b704-4513-ae53-d70d08e7b4fa?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,970 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-30 21:01:28,970 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:28,970 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:28,971 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:28,971 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,971 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,971 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,971 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:28,972 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:28,987 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:28,988 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-30 21:01:29,634 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:29,741 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a38ca7c5-5360-4cde-b19d-cc98735ecb26?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:29,860 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/a38ca7c5-5360-4cde-b19d-cc98735ecb26?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:29,877 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-30 21:01:29,878 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:29,878 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:29,879 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:01:29,879 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:29,879 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:29,879 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:29,880 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:29,904 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:29,905 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-30 21:01:30,409 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:30,557 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/94fe2c01-bac6-4575-89e4-44c9e53b8b4f?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:30,705 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/94fe2c01-bac6-4575-89e4-44c9e53b8b4f?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:30,722 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-30 21:01:30,722 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:30,722 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:30,723 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:01:30,723 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:30,723 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:30,723 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:30,723 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:30,723 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:30,787 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:30,787 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-30 21:01:31,320 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:31,406 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b82cb42b-c7d6-484f-9522-f1a6e03e60d8?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:31,526 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b82cb42b-c7d6-484f-9522-f1a6e03e60d8?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:31,538 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-30 21:01:31,539 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:31,539 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:31,540 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:01:31,540 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:31,540 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:31,540 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:31,541 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:31,541 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:31,561 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:31,561 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-30 21:01:32,068 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:32,184 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b0cf70cd-8884-435f-8f32-9b7fd0669b45?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:32,275 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/b0cf70cd-8884-435f-8f32-9b7fd0669b45?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:32,291 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-30 21:01:32,292 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:01:32,293 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:01:32,293 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:01:32,293 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:32,293 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:32,293 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:32,294 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:01:32,294 [WARNING]   ⚠ データ抽出失敗
+2025-10-30 21:01:32,340 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:32,341 [INFO] 
+2025-10-30 21:01:32,341 [INFO] ================================================================================
+2025-10-30 21:01:32,341 [INFO] 処理結果
+2025-10-30 21:01:32,341 [INFO] ================================================================================
+2025-10-30 21:01:32,342 [INFO] 総ファイル数: 10件
+2025-10-30 21:01:32,342 [INFO] 成功: 0件
+2025-10-30 21:01:32,342 [INFO] 失敗: 10件
+2025-10-30 21:01:32,342 [INFO] スキップ: 0件
+2025-10-30 21:01:32,342 [INFO] 成功率: 0.0%
+2025-10-30 21:01:32,343 [INFO] 総レコード数: 0件
+2025-10-30 21:01:32,343 [INFO] 総発行額: 0.00兆円
+2025-10-30 21:01:32,343 [INFO] ================================================================================
+2025-10-30 21:01:32,884 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:32,966 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f50bfb70-4ccb-4655-a365-102bdd560bd8?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:33,067 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f50bfb70-4ccb-4655-a365-102bdd560bd8?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:01:33,068 [INFO] 
+Layer2 総レコード数: 0件
+2025-10-30 21:01:33,070 [INFO] 
+2025-10-30 21:01:33,070 [INFO] ================================================================================
+2025-10-30 21:01:33,070 [INFO] 処理完了
+2025-10-30 21:01:33,070 [INFO] ================================================================================
+2025-10-30 21:01:33,070 [INFO] 詳細ログ: batch_processing.log
+2025-10-30 21:05:47,828 [INFO] ================================================================================
+2025-10-30 21:05:47,828 [INFO] 直接パース方式バッチ処理 v2 (修正版)
+2025-10-30 21:05:47,828 [INFO] ================================================================================
+2025-10-30 21:05:47,829 [INFO] プロジェクトID: jgb2023
+2025-10-30 21:05:47,829 [INFO] データセットID: 20251030
+2025-10-30 21:05:47,829 [INFO] データディレクトリ: G:\マイドライブ\JGBデータ\2023
+2025-10-30 21:05:47,829 [INFO] 処理制限: 10件 (0=全件)
+2025-10-30 21:05:47,830 [INFO] ================================================================================
+2025-10-30 21:05:47,830 [DEBUG] Checking C:\Users\sonke\secrets\jgb2023-sa.json for explicit credentials as part of auth process...
+2025-10-30 21:05:47,835 [INFO] ✓ BigQueryクライアント初期化完了
+2025-10-30 21:05:47,843 [INFO] ✓ .txtファイル: 179件
+2025-10-30 21:05:47,844 [INFO] 制限モード: 10件を処理します
+2025-10-30 21:05:47,844 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get BigQuery Tracing data.
+2025-10-30 21:05:47,844 [DEBUG] Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2025-10-30 21:05:47,872 [DEBUG] Making request: POST https://oauth2.googleapis.com/token
+2025-10-30 21:05:47,876 [DEBUG] Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-10-30 21:05:48,311 [DEBUG] https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-10-30 21:05:48,315 [DEBUG] Starting new HTTPS connection (1): bigquery.googleapis.com:443
+2025-10-30 21:05:48,798 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables?prettyPrint=false HTTP/1.1" 409 None
+2025-10-30 21:05:48,946 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:48,947 [INFO] ✓ parse_logテーブル準備完了: jgb2023.20251030.parse_log
+2025-10-30 21:05:48,949 [INFO] 
+2025-10-30 21:05:48,949 [INFO] ================================================================================
+2025-10-30 21:05:48,949 [INFO] 処理開始
+2025-10-30 21:05:48,949 [INFO] ================================================================================
+2025-10-30 21:05:48,950 [INFO] 
+2025-10-30 21:05:48,950 [INFO] [1/10] 20230403_令和5年5月9日付（財務省第百二十一号）
+2025-10-30 21:05:49,346 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:49,473 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/587e96b6-781b-4293-9b71-72f2cb7ab9b7?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:49,602 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/587e96b6-781b-4293-9b71-72f2cb7ab9b7?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:49,626 [INFO]   ✓ ファイル読み込み: 1392文字
+2025-10-30 21:05:49,627 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:49,627 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:49,628 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:49,628 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,628 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,629 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,629 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,629 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,630 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:49,630 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:49,631 [INFO]   ✓ 合計金額: 28993.00億円
+2025-10-30 21:05:50,096 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:50,097 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:50,228 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:50,229 [INFO] [2/10] 20230405_令和5年5月9日付（財務省第百二十三号）
+2025-10-30 21:05:50,939 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:51,027 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/9410a2e6-0b40-452f-adf9-942c8463d41f?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:51,123 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/9410a2e6-0b40-452f-adf9-942c8463d41f?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:51,134 [INFO]   ✓ ファイル読み込み: 1722文字
+2025-10-30 21:05:51,135 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:51,135 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:51,135 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:51,135 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:51,136 [INFO]   ✓ データ抽出: 3件
+2025-10-30 21:05:51,137 [INFO]   ✓ 合計金額: 26996.45億円
+2025-10-30 21:05:51,238 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:51,239 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:51,284 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:51,284 [INFO] [3/10] 20230407_令和5年5月9日付（財務省第百二十五号）
+2025-10-30 21:05:51,942 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:52,083 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/22747af4-8f47-4468-9e3a-fd4f877f0679?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:52,208 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/22747af4-8f47-4468-9e3a-fd4f877f0679?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:52,222 [INFO]   ✓ ファイル読み込み: 1720文字
+2025-10-30 21:05:52,223 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:52,223 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:52,224 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:52,224 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:52,224 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:52,224 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:52,224 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:52,225 [DEBUG]   除外: 金額が小さすぎる (101円)
+2025-10-30 21:05:52,225 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:52,225 [INFO]   ✓ データ抽出: 3件
+2025-10-30 21:05:52,225 [INFO]   ✓ 合計金額: 9864.00億円
+2025-10-30 21:05:52,274 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:52,274 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:52,363 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:52,364 [INFO] [4/10] 20230410_令和5年5月9日付（財務省第百二十九号）
+2025-10-30 21:05:53,051 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:53,141 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/7c1656cd-34b4-4227-b94e-3423a7ec4d1f?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:53,256 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/7c1656cd-34b4-4227-b94e-3423a7ec4d1f?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:53,264 [INFO]   ✓ ファイル読み込み: 1045文字
+2025-10-30 21:05:53,265 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:53,265 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:53,265 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:53,265 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:53,266 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:53,266 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:53,266 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:53,266 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:53,266 [INFO]   ✓ 合計金額: 176.75億円
+2025-10-30 21:05:53,347 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:53,348 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:53,402 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:53,404 [INFO] [5/10] 20230412_令和5年5月9日付（財務省第百二十二号）
+2025-10-30 21:05:54,055 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:54,156 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/0ab6ff2b-be65-4a34-a159-4d5583ba8875?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:54,252 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/0ab6ff2b-be65-4a34-a159-4d5583ba8875?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:54,261 [INFO]   ✓ ファイル読み込み: 1956文字
+2025-10-30 21:05:54,261 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:54,262 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:54,262 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:54,262 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,262 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,264 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,264 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,264 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,264 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:54,264 [INFO]   ✓ データ抽出: 4件
+2025-10-30 21:05:54,265 [INFO]   ✓ 合計金額: 26980.00億円
+2025-10-30 21:05:54,308 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:54,308 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:54,351 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:54,352 [INFO] [6/10] 20230412_令和5年5月9日付（財務省第百二十八号）
+2025-10-30 21:05:55,003 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:55,100 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/bc7070a2-9637-495e-893c-4bd67256e7f9?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:55,185 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/bc7070a2-9637-495e-893c-4bd67256e7f9?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:55,197 [INFO]   ✓ ファイル読み込み: 1040文字
+2025-10-30 21:05:55,198 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:55,198 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:55,198 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:55,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:55,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:55,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:55,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:55,200 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:55,200 [INFO]   ✓ 合計金額: 19.02億円
+2025-10-30 21:05:55,240 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:55,241 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:55,258 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:55,259 [INFO] [7/10] 20230414_令和5年5月9日付（財務省第百二十七号）
+2025-10-30 21:05:56,099 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:56,191 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/9d0fe9d1-544d-4e9f-9ac1-0d4dbc2803ea?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:56,278 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/9d0fe9d1-544d-4e9f-9ac1-0d4dbc2803ea?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:56,296 [INFO]   ✓ ファイル読み込み: 3674文字
+2025-10-30 21:05:56,297 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:56,297 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:56,297 [DEBUG]   除外: 金額が小さすぎる (50,000円)
+2025-10-30 21:05:56,298 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:56,298 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:56,298 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:56,299 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:56,299 [INFO]   ✓ 合計金額: 9990.00億円
+2025-10-30 21:05:56,344 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:56,344 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:56,381 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:56,382 [INFO] [8/10] 20230417_令和5年5月9日付（財務省第百三十一号）
+2025-10-30 21:05:56,953 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,064 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/de22e53e-1d92-40a9-9a6f-848163287ea7?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,184 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/de22e53e-1d92-40a9-9a6f-848163287ea7?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,196 [INFO]   ✓ ファイル読み込み: 1750文字
+2025-10-30 21:05:57,197 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:57,197 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:57,197 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:05:57,197 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:57,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:57,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:57,199 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:57,199 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:57,200 [INFO]   ✓ 合計金額: 1222.28億円
+2025-10-30 21:05:57,220 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,220 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:57,236 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,237 [INFO] [9/10] 20230417_令和5年5月9日付（財務省第百三十二号）
+2025-10-30 21:05:57,884 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:57,968 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f34435d1-7ea1-4a83-b395-77abc3ea7d2e?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:58,058 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/f34435d1-7ea1-4a83-b395-77abc3ea7d2e?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:58,067 [INFO]   ✓ ファイル読み込み: 2063文字
+2025-10-30 21:05:58,067 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:58,068 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:58,068 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:05:58,068 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:58,068 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:58,068 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:58,069 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:58,069 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:58,069 [INFO]   ✓ 合計金額: 5530.42億円
+2025-10-30 21:05:58,107 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:58,108 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:58,159 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:58,160 [INFO] [10/10] 20230417_令和5年5月9日付（財務省第百三十号）
+2025-10-30 21:05:58,827 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:58,925 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/d7fe78d9-82f2-4ef7-b1f2-021b81cbb630?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,035 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/d7fe78d9-82f2-4ef7-b1f2-021b81cbb630?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,042 [INFO]   ✓ ファイル読み込み: 1748文字
+2025-10-30 21:05:59,042 [DEBUG]   ✓ NFKC正規化完了
+2025-10-30 21:05:59,042 [INFO]   ✓ パターン: NUMBERED_LIST (信頼度: 0.90)
+2025-10-30 21:05:59,043 [DEBUG]   除外: 金額が小さすぎる (10,000円)
+2025-10-30 21:05:59,043 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:59,043 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:59,043 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:59,043 [DEBUG]   除外: 金額が小さすぎる (100円)
+2025-10-30 21:05:59,043 [INFO]   ✓ データ抽出: 2件
+2025-10-30 21:05:59,043 [INFO]   ✓ 合計金額: 330.31億円
+2025-10-30 21:05:59,086 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/bond_issuances/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,087 [INFO]   ✓ 成功: Layer2へ投入完了
+2025-10-30 21:05:59,127 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/datasets/20251030/tables/parse_log/insertAll?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,131 [INFO] 
+2025-10-30 21:05:59,131 [INFO] ================================================================================
+2025-10-30 21:05:59,131 [INFO] 処理結果
+2025-10-30 21:05:59,131 [INFO] ================================================================================
+2025-10-30 21:05:59,132 [INFO] 総ファイル数: 10件
+2025-10-30 21:05:59,132 [INFO] 成功: 10件
+2025-10-30 21:05:59,132 [INFO] 失敗: 0件
+2025-10-30 21:05:59,132 [INFO] スキップ: 0件
+2025-10-30 21:05:59,132 [INFO] 成功率: 100.0%
+2025-10-30 21:05:59,132 [INFO] 総レコード数: 24件
+2025-10-30 21:05:59,132 [INFO] 総発行額: 11.01兆円
+2025-10-30 21:05:59,132 [INFO] ================================================================================
+2025-10-30 21:05:59,727 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,835 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/dbd2a18d-15f5-4344-97e2-b773868daa62?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,900 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/dbd2a18d-15f5-4344-97e2-b773868daa62?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:05:59,901 [INFO] 
+Layer2 総レコード数: 24件
+2025-10-30 21:05:59,901 [INFO] 
+サンプルレコード（金額上位5件）:
+2025-10-30 21:06:00,755 [DEBUG] https://bigquery.googleapis.com:443 "POST /bigquery/v2/projects/jgb2023/jobs?prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:06:00,860 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/328a98db-f5dd-4e90-a0c8-99cb726db0b6?maxResults=0&location=asia-northeast1&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:06:00,940 [DEBUG] https://bigquery.googleapis.com:443 "GET /bigquery/v2/projects/jgb2023/queries/328a98db-f5dd-4e90-a0c8-99cb726db0b6?fields=jobReference%2CtotalRows%2CpageToken%2Crows&location=asia-northeast1&formatOptions.useInt64Timestamp=True&prettyPrint=false HTTP/1.1" 200 None
+2025-10-30 21:06:00,941 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 2,377,200,000,000円 (23772.00億円)
+2025-10-30 21:06:00,941 [INFO]   20230405_令和5年5月9日付（財務省第百二十三号）: 2,196,200,000,000円 (21962.00億円)
+2025-10-30 21:06:00,942 [INFO]   20230412_令和5年5月9日付（財務省第百二十二号）: 2,031,900,000,000円 (20319.00億円)
+2025-10-30 21:06:00,942 [INFO]   20230407_令和5年5月9日付（財務省第百二十五号）: 728,200,000,000円 (7282.00億円)
+2025-10-30 21:06:00,942 [INFO]   20230403_令和5年5月9日付（財務省第百二十一号）: 522,100,000,000円 (5221.00億円)
+2025-10-30 21:06:00,942 [INFO] 
+2025-10-30 21:06:00,943 [INFO] ================================================================================
+2025-10-30 21:06:00,944 [INFO] 処理完了
+2025-10-30 21:06:00,944 [INFO] ================================================================================
+2025-10-30 21:06:00,944 [INFO] 詳細ログ: batch_processing.log
